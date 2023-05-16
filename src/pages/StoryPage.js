@@ -18,8 +18,9 @@ export default function StoryPage(){
     const { isOpen, onOpen, onClose } = useDisclosure()
 
     const {id} = useParams()
-    
-    const getStoryByIdURI = `http://localhost:8000/stories/story/${id}`
+
+        const rootURL = process.env.REACT_APP_ROOTURL
+        const getStoryByIdURI = `${rootURL}/story/${id}`
 
 
     const getStoryById = async() => {

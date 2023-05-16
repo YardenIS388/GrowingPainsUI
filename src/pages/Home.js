@@ -29,8 +29,8 @@ export default function Home() {
   
 
    
-
-    const getStoriesURI = "http://localhost:8000/stories"
+    const rootURL = process.env.REACT_APP_ROOTURL
+    const getStoriesURI = rootURL
 
     const getStoryList = async() => {
         try {

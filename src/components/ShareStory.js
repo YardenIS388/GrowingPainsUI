@@ -34,7 +34,8 @@ export default function ShareStory({screenHeight, handleDrawerToggle}) {
     const [language, setLanguage] = useState([true, false, false, false])
     const [succsessStoryObj, setSuccsessStoryObj] = useState({})
 
-    const postStoriesURI = "http://localhost:8000/stories"
+    const rootURL = process.env.REACT_APP_ROOT_URL
+    const postStoriesURI = rootURL
 
     const createNewStory = async(newStory) => {
         try {

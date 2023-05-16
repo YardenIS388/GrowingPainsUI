@@ -27,7 +27,8 @@ export default function SearchButton() {
    
     const getStoryById = async() => {
 
-        const getStoryByIdURI = `http://localhost:8000/stories/story/${id}`
+        const rootURL = process.env.REACT_APP_ROOT_URL
+        const getStoryByIdURI = `${rootURL}/story/${id}`
         try {
 
             const fetchData = await axios.get(getStoryByIdURI)
