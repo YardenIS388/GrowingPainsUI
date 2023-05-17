@@ -1,4 +1,4 @@
-import {Circle, Text, HStack, Image} from '@chakra-ui/react'
+import {Circle, Text, HStack} from '@chakra-ui/react'
 import SearchButton from './SearchButton'
 export default function Header({screenHeight}){
    

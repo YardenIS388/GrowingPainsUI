@@ -7,17 +7,15 @@ import {
     ModalHeader,
     ModalFooter,
     ModalBody,
-    ModalCloseButton,
     useDisclosure,
     HStack,
     Text,
     Input
 } from '@chakra-ui/react'
 import { StoryContext } from '../contexts/StoriesContext'
-import {useState, useEffect, useContext} from 'react'
-import axios from 'axios'
+import {useState, useContext} from 'react'
 import {motion} from 'framer-motion'
-import StoryCircle from './StoryCircle'
+
 import {Link} from 'react-router-dom'
 
 export default function SearchButton() {

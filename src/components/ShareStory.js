@@ -1,7 +1,6 @@
 import {
     Center,
     Text,
-    Box,
     VStack,
     HStack,
     Drawer,
@@ -10,13 +9,10 @@ import {
     DrawerHeader,
     DrawerOverlay,
     DrawerContent,
-    DrawerCloseButton,
     useDisclosure,
-    Input,
     Circle,
     Textarea,
     Image,
-    SlideFade,
     Spinner
 } from '@chakra-ui/react'
 import {motion} from 'framer-motion'
@@ -360,7 +356,6 @@ export default function ShareStory({screenHeight, handleDrawerToggle}) {
                                 Sharing your story is completely anonymous, for it to remain that way don’t
                                 write things that people could link back to you.
                             </Text>
-
                         </DrawerBody>
                         <DrawerFooter>
                             <Center
@@ -377,8 +372,7 @@ export default function ShareStory({screenHeight, handleDrawerToggle}) {
                                 <Text fontFamily={'Merriweather'} fontWeight={700} fontSize={'18px'}> 
                                         Share anonymously
 
-                                        { isLoasing  && <Spinner/> }
-                                        
+                                        { isLoasing  && <Spinner/> }                                        
                                 </Text>
                             </Center>
                         </DrawerFooter>

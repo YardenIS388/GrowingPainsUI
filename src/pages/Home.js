@@ -1,23 +1,11 @@
 
 
-import {useState, useEffect, useRef, useContext} from 'react'
-import { StoryContext } from '../contexts/StoriesContext'
+import {useState, useEffect} from 'react'
 import Header from '../components/Header'
 import ShareStory from '../components/ShareStory'
-import AccordionItem from '../components/AccordionItem'
-import axios from 'axios'
-import Footer from '../components/Footer'
 import SuccsessShareStoryDrawer from '../components/SuccsessShareStoryDrawer'
 import {Example} from '../components/Accordion'
-
-import { VStack, Center, Text,Drawer, Box, HStack,Image,
-    DrawerBody,
-    DrawerFooter,
-    DrawerHeader,
-    DrawerOverlay,
-    DrawerContent,
-    DrawerCloseButton,
-    useDisclosure} from '@chakra-ui/react'
+import { VStack, useDisclosure} from '@chakra-ui/react'
 
 export default function Home() {
     const [screenSize,setScreenSize] = useState({width: window.innerWidth, height: window.innerHeight});
@@ -51,7 +39,7 @@ export default function Home() {
                         <Header screenHeight={screenSize.height}/>
                         <Example screenHeight={screenSize.height}></Example>
                         <ShareStory screenHeight={screenSize.height} handleDrawerToggle={openShareDrawer}/>
-                        <Footer></Footer>
+                     
             </VStack>
             <SuccsessShareStoryDrawer onClose={onClose} isOpen={isOpen} shareStoryData={shareStoryData}></SuccsessShareStoryDrawer>
 

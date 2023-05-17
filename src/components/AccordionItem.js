@@ -1,8 +1,4 @@
 import {
-    Fade,
-    ScaleFade,
-    Slide,
-    SlideFade,
     Collapse,
     Box,
     useDisclosure,

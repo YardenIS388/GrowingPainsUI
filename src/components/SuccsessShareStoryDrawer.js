@@ -3,16 +3,11 @@ import {
     Center,
     Text,
     Drawer,
-    Box,
     HStack,
     Image,
     DrawerBody,
-    DrawerFooter,
-    DrawerHeader,
     DrawerOverlay,
     DrawerContent,
-    DrawerCloseButton,
-    useDisclosure
 } from '@chakra-ui/react'
 
 export default function SuccsessShareStoryDrawer({onClose , isOpen, shareStoryData}) {
@@ -21,10 +16,7 @@ export default function SuccsessShareStoryDrawer({onClose , isOpen, shareStoryDa
         <Drawer
         isOpen={isOpen}
         placement='bottom'
-        onClose={onClose}
-        
-       
-      >
+        onClose={onClose} >
         <DrawerOverlay bg='rgba(0, 0, 0, 0.7)' filter='auto' blur='10px'  />
         <DrawerContent borderRadius='32px' bg='rgba(0, 0, 0, 0.8)' p={0} >
          

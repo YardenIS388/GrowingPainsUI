@@ -17,7 +17,6 @@ function App() {
 
     const getStoryList = async() => {
         try {
-
             const fetchData = await axios.get(getStoriesURI)
             console.log(fetchData.data)
             setStories(fetchData.data)

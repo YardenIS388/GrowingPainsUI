@@ -1,8 +1,7 @@
-import {Circle, Box, Image} from '@chakra-ui/react'
+import {Circle, Box} from '@chakra-ui/react'
 import StoryCircle from '../components/StoryCircle'
 import { useContext } from 'react'
 import { StoryContext } from '../contexts/StoriesContext'
-import {motion} from 'framer-motion'
 
 export default function StoryList({ title}) {
 
