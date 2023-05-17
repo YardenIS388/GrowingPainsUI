@@ -9,7 +9,7 @@ export default function GoToWhatsapp  ({id}) {
         // alert('Text copied');
       }
 
-      const hrefToStory = `whatsapp://send?text= I think you would like this story- https://www.growingpains.me/story/${id}`
+      const hrefToStory = `whatsapp://send?text= I think you would like this story- https://www.growingpains.me/stories/${id}`
 
     return (
         <a href={hrefToStory} data-action="share/whatsapp/share"  target="_blank">

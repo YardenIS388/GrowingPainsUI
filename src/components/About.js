@@ -26,7 +26,7 @@ export default function About(storyList){
                 </Box>
                 
                 <Text color='#A9A9B1' fontSize='16px' fontWeight={400} fontFamily={'Roboto'} >
-                    Tap on any of the spheres to listen to a story
+                    Audio available for stories with this icon
                 </Text>
             </HStack>
             <VStack alignItems='flex-start' px='28px' pb={5}>
@@ -41,7 +41,7 @@ export default function About(storyList){
 
                     <Center bg={'#303038'} color='white'  h='100%'  borderRadius={'16px'} px={3}>
                         <Link to={"FAQ"}>
-                            <Text m={2} whiteSpace='nowrap' fontSize={'14px'} fontFamily={'Roboto'} color='#A9A9B1'> 
+                            <Text m={2} whiteSpace='nowrap' fontSize={'16px'} fontFamily={'Roboto'} color='#A9A9B1'> 
                              Go to FAQ
                             </Text>
                         </Link>
@@ -49,8 +49,8 @@ export default function About(storyList){
                     <a href='https://www.linkedin.com/in/joshmv/' style={{width:'100%', height:'100%'}}>
                     <Center bg={'#303038'} color='white'  h='100%' borderRadius={'16px'} px={3}>
                        
-                            <Text display={'flex'} gap={1}  whiteSpace='nowrap' fontSize={'14px'} fontFamily={'Roboto'} color='#A9A9B1'> 
-                                Designed by <Text textDecoration={'underline'}>Josh Milwer</Text>
+                            <Text display={'flex'} gap={1}  whiteSpace='nowrap' fontSize={'16px'} fontFamily={'Roboto'} color='#A9A9B1'> 
+                                Designed by <Text textDecoration={'underline'}>Josh</Text>
                             </Text>
                          
                     </Center>

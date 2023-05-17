@@ -13,31 +13,32 @@ import {
     Text,
     Input
 } from '@chakra-ui/react'
-import {useState, useEffect} from 'react'
+import { StoryContext } from '../contexts/StoriesContext'
+import {useState, useEffect, useContext} from 'react'
 import axios from 'axios'
 import {motion} from 'framer-motion'
 import StoryCircle from './StoryCircle'
+import {Link} from 'react-router-dom'
 
 export default function SearchButton() {
     const {isOpen, onOpen, onClose} = useDisclosure()
     const [storyData, setStoryData] = useState(null)
     const [searchResult, setSearchResult] = useState('')
-    const [id, setId] = useState('#')
+    const [id, setId] = useState('')
+
+    const stories = useContext(StoryContext)
 
    
     const getStoryById = async() => {
-
-        const rootURL = process.env.REACT_APP_ROOT_URL
-        const getStoryByIdURI = `${rootURL}/story/${id}`
-        try {
-
-            const fetchData = await axios.get(getStoryByIdURI)
-            console.log(fetchData.data)
-            setStoryData(fetchData.data)
-        } catch (error) {
-            setSearchResult('Sorry, something went wrong with the search')
-            console.log(error)
-        }
+   
+            const story = stories.find(current => current.storyId = id)
+            setStoryData(story)
+            if(story){
+                setSearchResult(`found story # ${story.storyId}`)
+            }else{
+                setSearchResult('Sorry, there doesnt seem to be a story with that number')
+            }
+           
     }
 
     const handleClose = ()=> {
@@ -61,7 +62,12 @@ export default function SearchButton() {
                     <ModalBody display={'flex'} flexDirection={'column'} alignItems={'center'} as={motion.div} layout>
                        {
                         storyData ? 
-                        <StoryCircle imgSrc={'../images/marble1.svg'} story={storyData}></StoryCircle>
+                        <Box  w='150px' h='150px'>
+                            <Link to={`/stories/${storyData.storyId}`}>
+                                <Image src='../images/marble.svg'></Image>
+                            </Link>
+                        </Box>
+                        
                         :
                         <Box borderWidth={2} w='150px' h='150px' borderRadius="100%" borderStyle={'dashed'} display={'flex'} justifyContent={'center'} alignItems={'center'}>
                            
@@ -79,7 +85,8 @@ export default function SearchButton() {
                             borderRadius={'16px'}
                             bg="#303038"
                             value={id}
-                            onChange={(e) => {setId(e.target.value)}}  >                            
+                            onChange={(e) => {setId(e.target.value)}} 
+                             >                            
                        </Input>
                         <Box borderRadius={'16px'} bg="#303038" h='40px' display={'flex'} alignItems={'center'} onClick={getStoryById}>
                             <Image src='../images/chevron-down.svg' transform={'rotate(270deg)'}></Image>
