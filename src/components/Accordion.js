@@ -1,13 +1,15 @@
 import * as React from "react";
-import {useState, useEffect} from "react";
+import {useState, useContext} from "react";
+import { StoryContext } from "../contexts/StoriesContext";
 import {motion, AnimatePresence} from "framer-motion";
 import {Box, Text, HStack, Image, VStack} from '@chakra-ui/react'
 import StoryList from '../components/StoryList'
 import About from '../components/About'
 
-const Accordion = ({i, expanded, setExpanded, screenHeight, storyList, title}) => {
+const Accordion = ({i, expanded, setExpanded, screenHeight, title}) => {
+    
     const isOpen = i === expanded;
-    console.log(title)
+    const storyList = useContext(StoryContext)
 
     // By using `AnimatePresence` to mount and unmount the contents, we can animate
     // them in and out while also only rendering the contents of open accordions
@@ -48,11 +50,11 @@ const Accordion = ({i, expanded, setExpanded, screenHeight, storyList, title}) =
                 duration: 0.8,
                 ease: [0.04, 0.62, 0.23, 0.98]
             }}>
-            <Box height={screenHeight * 0.50} borderRadius=' 0px 0px 16px 16px' overflowY='scroll' px='32px'>
+            <Box height={screenHeight * 0.50} borderRadius=' 0px 0px 16px 16px' overflowY='scroll' px={title === 'About this project' ? '0px':'32px'}>
                { title === 'About this project' ? 
-                        <About storyList={storyList}></About>
+                        <About ></About>
                         :       
-                        <StoryList storyList={storyList} title={title}> </StoryList>
+                        <StoryList title={title}> </StoryList>
                 }
             </Box>
             </Box>
@@ -63,7 +65,7 @@ const Accordion = ({i, expanded, setExpanded, screenHeight, storyList, title}) =
     </ >);
 };
 
-export const Example = ({screenHeight, stories}) => {
+export const Example = ({screenHeight}) => {
     // This approach is if you only want max one section open at a time. If you want
     // multiple sections to potentially be open simultaneously, they can all be
     // given their own `useState`.
@@ -74,16 +76,14 @@ export const Example = ({screenHeight, stories}) => {
     return (
 
         <VStack h={screenHeight*0.8} w="100%">
-
             {accordionIds.map((i) => {
 
                 return (
-                <Accordion key={i} i={i} expanded={expanded} setExpanded={setExpanded} screenHeight={screenHeight} title={tabTitles[i]} storyList={stories}/>
+                <Accordion key={i} i={i} expanded={expanded} setExpanded={setExpanded} screenHeight={screenHeight} title={tabTitles[i]}/>
                 )
 
             })
 }
-
         </VStack>
 
     )

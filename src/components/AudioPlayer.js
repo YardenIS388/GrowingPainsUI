@@ -25,18 +25,23 @@ export default function AudioPlayer({audioFile, storyData}) {
         const seconds = Math.floor(timeInSeconds % 60);
         return `${minutes.toString().padStart(1, '0')}:${seconds.toString().padStart(2, '0')}`;
       }
+
+     
   
     useEffect(() => {
+
       const audio = audioRef.current;
-  
       const updateProgress = () => {
         setTrackProgress(audio.currentTime);
       };
-  
+ 
       audio.addEventListener("timeupdate", updateProgress);
   
       return () => {
         audio.removeEventListener("timeupdate", updateProgress);
+        audio.pause(); // Pause the audio
+        audio.currentTime = 0; // Reset the audio position
+        setIsPlaying(false)
       };
     }, []);
   

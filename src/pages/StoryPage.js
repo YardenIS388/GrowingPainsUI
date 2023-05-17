@@ -9,6 +9,7 @@ import AudioPlayer from '../components/AudioPlayer'
 import StoryCircle from '../components/StoryCircle'
 import Footer from '../components/Footer'
 import SearchButton from '../components/SearchButton'
+import GoToWhatsapp from '../components/GoToWhatsapp'
 export default function StoryPage(){
 
     const [screenSize,setScreenSize] = useState({width: window.innerWidth, height: window.innerHeight});
@@ -41,6 +42,8 @@ export default function StoryPage(){
         setShareStoryData(storyObj)
         onOpen()    
    }
+
+ 
 
     useEffect(() => {
 
@@ -83,9 +86,8 @@ export default function StoryPage(){
 
 
                 <HStack w='100%' px='40px'>
-                    <Center boxSize='60px' bg='#303038' borderRadius='16px' onClick={()=> openShareDrawer(storyData)}>
-                        <Image src='../images/shareIcon.svg'></Image>
-                    </Center>
+
+                    <GoToWhatsapp id={id}></GoToWhatsapp>                  
                     <ShareStory screenHeight={screenSize.height} handleDrawerToggle={openShareDrawer}/>
                 </HStack>
                 
@@ -117,9 +119,18 @@ export default function StoryPage(){
                     <Text color='white' fontFamily={'Roboto'} fontWeight={400} fontSize='16px' pb='16px'> This story doesn’t exist yet, or was deleted. You can go to the story gallery to see all of the stories, or check out some of them below.</Text>
 
                     <HStack justifyContent={'space-around'} w="100%" pb='32px'>
-                        <StoryCircle imageSrc='../images/marbleSound.svg'></StoryCircle>
-                        <StoryCircle imageSrc='../images/marbleSound.svg'></StoryCircle>
-                        <StoryCircle imageSrc='../images/marbleSound.svg'></StoryCircle>
+                        <Box h='auto' w='100px'>
+                            <StoryCircle imageSrc='../images/marbleSound.svg'></StoryCircle>
+                        </Box>
+                        <Box h='auto' w='100px'>
+                            <StoryCircle imageSrc='../images/marbleSound.svg'></StoryCircle>
+                        </Box>
+                        <Box h='auto' w='100px'>
+                            <StoryCircle imageSrc='../images/marbleSound.svg'></StoryCircle>
+                        </Box>
+                       
+                        
+                       
                     </HStack>
                     <Box w='100%' display={'flex'} justifyContent={'center'} alignItems={'flex=end'} position={'absolute'} bottom='16px'>
                          <Footer></Footer>

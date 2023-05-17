@@ -1,6 +1,12 @@
 import {Circle, Box, Image} from '@chakra-ui/react'
 import StoryCircle from '../components/StoryCircle'
-export default function StoryList({storyList, title}) {
+import { useContext } from 'react'
+import { StoryContext } from '../contexts/StoriesContext'
+import {motion} from 'framer-motion'
+
+export default function StoryList({ title}) {
+
+    const storyList = useContext(StoryContext)
 
     const emptyArray = Array((25)).fill("")
     const defaultArray = storyList ? [...storyList, ...emptyArray ] : null
@@ -11,21 +17,31 @@ export default function StoryList({storyList, title}) {
                       storyList ?   storyList.map((story) => {
                             if(story.ageGroup === title){
                                 return (
-                                    <StoryCircle  key={story._id}   imageSrc={'../images/marble1.svg'} story={story}>
-                                          
-                                    </StoryCircle>
+                                    <Circle  
+                                        key={story._id}
+                                        size='60px'
+                                        me='auto' >
+                                         <StoryCircle  
+                                              
+                                            imageSrc={'../images/marble1.svg'} 
+                                            story={story}> </StoryCircle>
+                                    </Circle>
+                                   
                                    
                                 )                              
                             }})
                         : 
                         null
                     }
-                    {
-                         
+                    {    
                          emptyArray.map((story) => {
                           
                                 return (
-                                    <Circle key={story._id} bg="#303038" size='50px' me='auto'>
+                                    <Circle 
+                                        key={story._id} 
+                                        bg="#303038" 
+                                        size='60px' 
+                                        me='auto'>
                                         {story.ageGroup}
                                     </Circle>
                                 )                              
