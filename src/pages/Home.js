@@ -24,10 +24,6 @@ export default function Home() {
     const [shareStoryData, setShareStoryData]=useState({})
     const { isOpen, onOpen, onClose } = useDisclosure()
    
-  
-
-  
-
    
     const rootURL = process.env.REACT_APP_ROOTURL
     const getStoriesURI = rootURL

@@ -16,7 +16,8 @@ import {
     Circle,
     Textarea,
     Image,
-    SlideFade
+    SlideFade,
+    Spinner
 } from '@chakra-ui/react'
 import {motion} from 'framer-motion'
 import {useState} from 'react'
@@ -33,24 +34,28 @@ export default function ShareStory({screenHeight, handleDrawerToggle}) {
     const [ageGroup, setAgeGroup] = useState([false, false, false, false])
     const [language, setLanguage] = useState([true, false, false, false])
     const [succsessStoryObj, setSuccsessStoryObj] = useState({})
+    const [isLoasing , setIsLoading] = useState(false)
 
-    const rootURL = process.env.REACT_APP_ROOT_URL
+    const rootURL = process.env.REACT_APP_ROOTURL
     const postStoriesURI = rootURL
 
     const createNewStory = async(newStory) => {
+        console.log(rootURL)
         try {
-            const response = await axios.post(postStoriesURI, newStory);
+            const response = await axios.post(rootURL, newStory);
             return response.data;
         } catch (error) {
+
             console.log('Error creating new story:', error);
-            throw error;
+            throw error
         }
     };
 
     async function handleSubmit(e) {
         // Prevent the browser from reloading the page
-        e.preventDefault();
 
+        e.preventDefault();
+        setIsLoading(true)
         let selectedAgeGroup = ""
         let selectedLanguage = ''
 
@@ -88,13 +93,17 @@ export default function ShareStory({screenHeight, handleDrawerToggle}) {
             art: 'http://example.com/image.jpg'
         };
 
+        console.log({...newStory})
+
         try {
             const data = await createNewStory(newStory);
             console.log('New story created:', data);
             setSuccsessStoryObj(data)
             setFormSucess('done')
+            setIsLoading(false)
         } catch (error) {
             console.log('Error creating new story:', error);
+            setIsLoading(false)
         }
 
     }
@@ -361,11 +370,16 @@ export default function ShareStory({screenHeight, handleDrawerToggle}) {
                                 h='59px'
                                 w="100%"
                                 boxShadow={'0px 4px 60px rgba(0, 0, 0, 0.2)'}
-                                onClick={handleSubmit}
+                                onClick={(e) => handleSubmit(e)}
                                 opacity={formSuccess === 'initial'               
                                 ? 0.5
                                 : 1}>
-                                <Text fontFamily={'Merriweather'} fontWeight={700} fontSize={'18px'}> Share anonymously</Text>
+                                <Text fontFamily={'Merriweather'} fontWeight={700} fontSize={'18px'}> 
+                                        Share anonymously
+
+                                        { isLoasing  && <Spinner/> }
+                                        
+                                </Text>
                             </Center>
                         </DrawerFooter>
                     </DrawerContent>}

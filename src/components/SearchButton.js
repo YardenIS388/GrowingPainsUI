@@ -74,7 +74,8 @@ export default function SearchButton() {
                             color='white'
                             fontFamily={'Merriweather'}
                             borderWidth='0px'
-                            type={'number'}
+                            type={'text'}
+                            pattern="\d*"
                             borderRadius={'16px'}
                             bg="#303038"
                             value={id}
