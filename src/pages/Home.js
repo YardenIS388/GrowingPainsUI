@@ -47,7 +47,7 @@ export default function Home() {
     return (
       <>
 
-            <VStack bg='#080808' h={screenSize.height} px="16px">
+            <VStack bg='#080808' h={screenSize.height} px="16px" overflowY='hidden' >
                         <Header screenHeight={screenSize.height}/>
                         <Example screenHeight={screenSize.height}></Example>
                         <ShareStory screenHeight={screenSize.height} handleDrawerToggle={openShareDrawer}/>
