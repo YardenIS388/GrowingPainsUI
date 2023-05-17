@@ -50,7 +50,7 @@ const Accordion = ({i, expanded, setExpanded, screenHeight, title}) => {
                 duration: 0.8,
                 ease: [0.04, 0.62, 0.23, 0.98]
             }}>
-            <Box height={screenHeight * 0.50} borderRadius=' 0px 0px 16px 16px' overflowY='scroll' px={title === 'About this project' ? '0px':'32px'}>
+            <Box height={screenHeight * 0.52} borderRadius=' 0px 0px 16px 16px' overflowY='scroll' px={title === 'About this project' ? '0px':'32px'}>
                { title === 'About this project' ? 
                         <About ></About>
                         :       
@@ -75,7 +75,7 @@ export const Example = ({screenHeight}) => {
 
     return (
 
-        <VStack h={screenHeight*0.8} w="100%">
+        <VStack h={screenHeight*0.8} w="100%" >
             {accordionIds.map((i) => {
 
                 return (

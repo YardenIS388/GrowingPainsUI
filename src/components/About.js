@@ -50,7 +50,7 @@ export default function About(storyList){
                     <Center bg={'#303038'} color='white'  h='100%' borderRadius={'16px'} px={3}>
                        
                             <Text display={'flex'} gap={1}  whiteSpace='nowrap' fontSize={'16px'} fontFamily={'Roboto'} color='#A9A9B1'> 
-                                Designed by <Text textDecoration={'underline'}>Josh</Text>
+                                Designed by Josh
                             </Text>
                          
                     </Center>

@@ -33,11 +33,11 @@ export default function StoryList({ title}) {
                         null
                     }
                     {    
-                         emptyArray.map((story) => {
+                         emptyArray.map((index , story) => {
                           
                                 return (
                                     <Circle 
-                                        key={story._id} 
+                                        key={index} 
                                         bg="#303038" 
                                         size='60px' 
                                         me='auto'>
