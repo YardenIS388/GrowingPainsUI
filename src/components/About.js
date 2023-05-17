@@ -35,7 +35,7 @@ export default function About(storyList){
                     Part of growing up is realizing our parents aren’t perfect beings, they’re changing and growing people like the children they raise.
                 </Text>
                 <Text color='#8A8A92' fontFamily={'Roboto'} fontWeight={400}>
-                Growing Pains reexamines the relationship between parents and children through the collection of moments when people realized that their parents aren’t perfect.
+                    Growing Pains reexamines the relationship between parents and children through the collection of moments when people realized that their parents aren’t perfect, seeing the imperfect child behind their heroes.
                 </Text>
                 <HStack justifyContent={'space-between'} w="100%" h='48px' mb={3}>
 
