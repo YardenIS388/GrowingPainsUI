@@ -1,8 +1,9 @@
-import { createContext } from 'react';
+import { createContext} from 'react';
 
 const StoryContext = createContext([])
 
-const StoryProvider = ({ storyList, children }) => {
+const StoryProvider = ({storyList,children }) => {
+
     return (
       <StoryContext.Provider value={storyList}>
         {children}

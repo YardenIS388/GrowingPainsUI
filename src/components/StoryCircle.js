@@ -21,9 +21,6 @@ import GoToWhatsapp from './GoToWhatsapp'
 export default function StoryCircle({imageSrc, audio, story}) {
     const {isOpen, onOpen, onClose} = useDisclosure()
 
-    if(story){
-    console.log(story.storyId)
-    }
     return ( 
     <> 
     <Avatar as={motion.div}   
