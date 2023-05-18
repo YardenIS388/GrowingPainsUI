@@ -56,7 +56,7 @@ export default function StoryPage(){
             window.removeEventListener('resize', updateDimension);
       
         }
-    }, [storyData])
+    }, [])
 
     if(storyData){
         return(

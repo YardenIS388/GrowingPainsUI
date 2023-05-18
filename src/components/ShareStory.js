@@ -127,11 +127,10 @@ export default function ShareStory({screenHeight, handleDrawerToggle}) {
                             <DrawerHeader
                                 borderBottomWidth='1px'
                                 display='flex'
-                                
                                 justifyContent='space-between'
                                 borderWidth='0px'
                                 mx='16px'>
-                                <Text color='white'>
+                                <Text color='white' fontFamily={'Merriweather'} fontWeight={700} fonrSize={'18px'}>
                                     Growing Pains # {succsessStoryObj
                                         ? succsessStoryObj.storyId
                                         : null}
@@ -141,7 +140,7 @@ export default function ShareStory({screenHeight, handleDrawerToggle}) {
                             <DrawerBody display='flex' flexDirection='column' alignItems='center' gap={3} p='0px'>
                                 <HStack bg='#303038' flex={1} w='100%' py={5} gap={1} ps={5}>
                                     <Image src='../images/littleWhiteHeart.svg'></Image>
-                                    <Text color='#A9A9B1'>
+                                    <Text color='#A9A9B1' fontFamily={'Roboto'} fontWeight={400} fontSize='16px'>
                                         Thank you for sharing your story!</Text>
                                 </HStack>
                                 <Circle
@@ -151,10 +150,10 @@ export default function ShareStory({screenHeight, handleDrawerToggle}) {
                                     borderColor="white"
                                     bg='gray'></Circle>
                                 <VStack w="100%" alignItems='start' px='24px'>
-                                    <Text color='#A9A9B1'>Ages {succsessStoryObj
+                                    <Text color='#A9A9B1' fontFamily={'Roboto'} fontWeight={400} fontSize={'16px'}>Ages {succsessStoryObj
                                         ? succsessStoryObj.ageGroup
                                         : null}</Text>
-                                    <Text color='white'>
+                                    <Text color='white' fontFamily={'Roboto'} fontWeight={400} fontSize={'16px'}>
                                         {succsessStoryObj
                                         ? succsessStoryObj.content
                                         : null}
@@ -167,7 +166,7 @@ export default function ShareStory({screenHeight, handleDrawerToggle}) {
                                         <Image src='../images/shareIcon.svg'/>
                                     </Center>
                                     <Center bg='#303038' borderRadius='16px' h='59px' w="100%" onClick={handleTakeDown}>
-                                        <Text color='white'> 
+                                        <Text color='#A9A9B1' fontFamily={'Roboto'} fontWeight={400} fontSize={'16px'}> 
                                             I want to take this down
                                         </Text>
                                     </Center>
