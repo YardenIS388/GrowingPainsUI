@@ -18,12 +18,11 @@ import {
 import {motion} from 'framer-motion'
 import {useState} from 'react'
 import axios from 'axios';
-import { screen } from '@testing-library/react';
+
 
 export default function ShareStory({screenHeight, handleDrawerToggle}) {
 
     const {isOpen, onOpen, onClose} = useDisclosure()
-    const { deleteOpen, onToggle } = useDisclosure()
     const [formSuccess , setFormSucess] = useState('initial')
     //const [formSuccess, setFormSucess] = useState('done')
     const [storyField, setStoryField] = useState("A moment when I understood out that my parents aren’t perfect was when")
@@ -33,7 +32,6 @@ export default function ShareStory({screenHeight, handleDrawerToggle}) {
     const [isLoasing , setIsLoading] = useState(false)
 
     const rootURL = process.env.REACT_APP_ROOTURL
-    const postStoriesURI = rootURL
 
     const createNewStory = async(newStory) => {
         console.log(rootURL)
@@ -269,6 +267,7 @@ export default function ShareStory({screenHeight, handleDrawerToggle}) {
                                 fontSize={'16px'}
                                 placeholder='A moment when I understood out that my parents aren’t perfect was when...'
                                 value={storyField}
+                                autoFocus={false}
                                 onChange={(e) => {
                                 setStoryField(e.target.value) 
                                 if (formSuccess === 'initial') {

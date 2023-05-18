@@ -16,10 +16,14 @@ import {
 import {motion} from 'framer-motion'
 import ShareStory from '../components/ShareStory'
 import AudioPlayer from './AudioPlayer'
+import GoToWhatsapp from './GoToWhatsapp'
 
 export default function StoryCircle({imageSrc, audio, story}) {
     const {isOpen, onOpen, onClose} = useDisclosure()
 
+    if(story){
+    console.log(story.storyId)
+    }
     return ( 
     <> 
     <Avatar as={motion.div}   
@@ -73,8 +77,8 @@ export default function StoryCircle({imageSrc, audio, story}) {
 
           <DrawerFooter>
                 <HStack w='100%'>
-                            <Box bg='#303038' borderRadius='16px' p={4}>
-                                    <Image src='../images / shareIcon.svg '></Image>
+                            <Box bg='#303038' borderRadius='16px'>
+                                  <GoToWhatsapp id={story? story.storyId : null}></GoToWhatsapp>
                             </Box>
                             <ShareStory screenHeight={710}></ShareStory > 
                 </HStack> 

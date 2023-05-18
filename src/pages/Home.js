@@ -33,17 +33,16 @@ export default function Home() {
    }
 
     return (
-      <>
-
+   
             <VStack bg='#080808' h={screenSize.height} px="16px" overflowY='hidden' pb={4}>
                         <Header screenHeight={screenSize.height}/>
                         <Example screenHeight={screenSize.height}></Example>
                         <ShareStory screenHeight={screenSize.height} handleDrawerToggle={openShareDrawer}/>
-                     
+                        <SuccsessShareStoryDrawer onClose={onClose} isOpen={isOpen} shareStoryData={shareStoryData}></SuccsessShareStoryDrawer>
             </VStack>
-            <SuccsessShareStoryDrawer onClose={onClose} isOpen={isOpen} shareStoryData={shareStoryData}></SuccsessShareStoryDrawer>
+           
 
-      </>
+    
 
 
   
