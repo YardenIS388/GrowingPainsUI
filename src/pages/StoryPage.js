@@ -23,16 +23,7 @@ export default function StoryPage(){
         const getStoryByIdURI = `${rootURL}/story/${id}`
 
 
-    const getStoryById = async() => {
-        try {
-
-            const fetchData = await axios.get(getStoryByIdURI)
-            console.log(fetchData.data)
-            setStoryData(fetchData.data)
-        } catch (error) {
-            console.log(error)
-        }
-    }
+   
 
     const getCurrentDimension = () => {
         return {width: window.innerWidth, height: window.innerHeight}
@@ -49,10 +40,21 @@ export default function StoryPage(){
         const updateDimension = () => {
             setScreenSize(getCurrentDimension())
         }
+        
+        const getStoryById = async() => {
+            try {
+    
+                const fetchData = await axios.get(getStoryByIdURI)
+                console.log(fetchData.data)
+                setStoryData(fetchData.data)
+            } catch (error) {
+                console.log(error)
+            }
+        }
    
-        window.addEventListener('load', getStoryById)
+        getStoryById()
         return () => {
-        window.removeEventListener('load', getStoryById) 
+      
         }
     }, [storyData])
 
