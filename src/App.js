@@ -10,30 +10,35 @@ import { StoryProvider } from './contexts/StoriesContext.js'
 
 function App() {
 
-    const  [stories, setStories] = useState([])
+    const  [stories, setStories] = useState({})
 
     const rootURL = process.env.REACT_APP_ROOTURL
     const getStoriesURI = rootURL
 
-    const getStoryList = async() => {
-        try {
-            const fetchData = await axios.get(getStoriesURI)
-            console.log(fetchData.data)
-            setStories (fetchData.data)
-        } catch (error) {
-            console.log(error)
-        }
-    }
+  
 
 
     useEffect(() => {
         console.log('use effect fetch data')
-        window.addEventListener('load', getStoryList)
+        //window.addEventListener('load', getStoryList
+        const getStoryList = async() => {
+            console.log('getStoriesList invoked')
+            try {
+                console.log('in try block')
+                const fetchData = await axios.get(getStoriesURI)
+                console.log('after axios')
+                console.log(fetchData.data)
+                setStories (fetchData.data)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        getStoryList()
         return () => {
-            window.removeEventListener('load', getStoryList)
+            //window.removeEventListener('load', getStoryList)
  
         }
-    }, [stories])
+    }, [])
 
     return (
 
