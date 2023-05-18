@@ -37,10 +37,8 @@ export default function StoryPage(){
 
     useEffect(() => {
 
-        const updateDimension = () => {
-            setScreenSize(getCurrentDimension())
-        }
-        
+       
+        setScreenSize(getCurrentDimension())
         const getStoryById = async() => {
             try {
     

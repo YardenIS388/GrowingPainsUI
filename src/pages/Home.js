@@ -17,13 +17,10 @@ export default function Home() {
     }
 
     useEffect(() => {
-        const updateDimension = () => {
-            setScreenSize(getCurrentDimension())
-        }
-        window.addEventListener('resize', updateDimension)
-
+       
+        setScreenSize(getCurrentDimension())
         return () => {
-            window.removeEventListener('resize', updateDimension)
+           
         }
     }, [screenSize])
 
