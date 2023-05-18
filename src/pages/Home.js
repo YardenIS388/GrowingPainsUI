@@ -18,11 +18,14 @@ export default function Home() {
 
     useEffect(() => {
        
-        setScreenSize(getCurrentDimension())
+        const updateDimension = () => {
+            setScreenSize(getCurrentDimension())
+          }
+          window.addEventListener('resize', updateDimension);
         return () => {
-           
+            window.removeEventListener('resize', updateDimension);
         }
-    }, [screenSize])
+    }, [])
 
    const openShareDrawer = (storyObj) => {
         setShareStoryData(storyObj)

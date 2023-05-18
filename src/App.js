@@ -14,7 +14,7 @@ function App() {
     
 
     useEffect(() => {
-        
+
         const rootURL = process.env.REACT_APP_ROOTURL
         const getStoriesURI = rootURL
         const getStoryList = async() => {
@@ -36,7 +36,7 @@ function App() {
 
         <ChakraProvider>
             <StoryProvider storyList={stories}>
-                <Routes>
+                <Routes style={{backgroundColor:'pink'}}>
                     <Route path='/' element={<Home></Home>}> </Route>
                     <Route path='/stories/:id' element={<StoryPage></StoryPage>}></Route>
                     <Route path='/FAQ' element={<FAQPage></FAQPage>}></Route>

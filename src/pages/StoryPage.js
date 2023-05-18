@@ -36,9 +36,6 @@ export default function StoryPage(){
  
 
     useEffect(() => {
-
-       
-        setScreenSize(getCurrentDimension())
         const getStoryById = async() => {
             try {
     
@@ -49,9 +46,14 @@ export default function StoryPage(){
                 console.log(error)
             }
         }
-   
         getStoryById()
+        const updateDimension = () => {
+            setScreenSize(getCurrentDimension())
+          }
+          window.addEventListener('resize', updateDimension);
         return () => {
+
+            window.removeEventListener('resize', updateDimension);
       
         }
     }, [storyData])
