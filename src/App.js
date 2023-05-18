@@ -10,7 +10,7 @@ import { StoryProvider } from './contexts/StoriesContext.js'
 
 function App() {
 
-    const [stories, setStories] = useState([])
+    const  [stories, setStories] = useState([])
 
     const rootURL = process.env.REACT_APP_ROOTURL
     const getStoriesURI = rootURL
@@ -19,7 +19,7 @@ function App() {
         try {
             const fetchData = await axios.get(getStoriesURI)
             console.log(fetchData.data)
-            setStories(fetchData.data)
+            setStories (fetchData.data)
         } catch (error) {
             console.log(error)
         }
@@ -27,7 +27,7 @@ function App() {
 
 
     useEffect(() => {
-   
+        console.log('use effect fetch data')
         window.addEventListener('load', getStoryList)
         return () => {
             window.removeEventListener('load', getStoryList)

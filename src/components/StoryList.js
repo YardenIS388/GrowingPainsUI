@@ -1,14 +1,28 @@
 import {Circle, Box} from '@chakra-ui/react'
 import StoryCircle from '../components/StoryCircle'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { StoryContext } from '../contexts/StoriesContext'
 
 export default function StoryList({ title}) {
 
     const storyList = useContext(StoryContext)
-
     const emptyArray = Array((25)).fill("")
-    const defaultArray = storyList ? [...storyList, ...emptyArray ] : null
+
+    const getFilteredList = ()=> {
+        const defaultArray = storyList ? [...storyList, ...emptyArray ] : null
+    }
+   
+   
+
+
+    useEffect(() => {
+        console.log('use effect fetch from story list ')
+        window.addEventListener('load', getFilteredList)
+        return () => {
+            window.removeEventListener('load', getFilteredList)
+ 
+        }
+    }, [storyList])
 
     return(
                 <Box display='flex' flexWrap='wrap' gap={5} overflow='scroll' pt='24px'>
