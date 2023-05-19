@@ -124,7 +124,7 @@ export default function ShareStory({screenHeight, handleDrawerToggle}) {
             <Center bg={'white'} borderRadius='16px' h='100%' w="100%" onClick={onOpen} boxShadow={'0px 4px 60px rgba(255, 255, 255 , 0.2)'}>
                <Text fontFamily={'Merriweather'} fontSize='18px' fontWeight={700}> Tell your story </Text> 
             </Center>
-            <Drawer placement='bottom' onClose={handleDrawerClose} isOpen={isOpen} h={screenHeight * 0.8} >
+            <Drawer autoFocus={false} placement='bottom' onClose={handleDrawerClose} isOpen={isOpen} h={screenHeight * 0.8} >
                 <DrawerOverlay backdropFilter={'blur(2px)'} /> {formSuccess === 'done'
                     ? <DrawerContent borderRadius='32px' bg='#26262E'  w='93%' mx='auto' h='80%' mb='10px'>
                             <DrawerHeader
@@ -268,7 +268,7 @@ export default function ShareStory({screenHeight, handleDrawerToggle}) {
                                 fontSize={'16px'}
                                 placeholder='A moment when I understood out that my parents aren’t perfect was when...'
                                 value={storyField}
-                                autoFocus={false}
+                                
                                 onChange={(e) => {
                                 setStoryField(e.target.value) 
                                 if (formSuccess === 'initial') {

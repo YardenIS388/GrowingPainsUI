@@ -30,7 +30,7 @@ export default function StoryCircle({imageSrc, audio, story}) {
             w='100%' 
             h="100%">
     </Avatar> 
-    < Drawer 
+    < Drawer autoFocus={false}
             isOpen = { isOpen }
             onClose = {onClose}
             placement = 'bottom' > 
@@ -44,7 +44,7 @@ export default function StoryCircle({imageSrc, audio, story}) {
                     > 
         <DrawerHeader display='flex' justifyContent={'space-between'} py='24px'>
             <Text color='white' fontFamily={'Merriweather'} fontWeight={700}>
-                Growing Pains # {story? story.storyId : null}
+                Growing Pains #{story? story.storyId : null}
             </Text>
             <Box onClick={onClose}>
                 <Image src='../images/closeShare.svg'></Image>
