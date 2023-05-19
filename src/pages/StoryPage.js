@@ -99,7 +99,7 @@ export default function StoryPage(){
         )
     }else{
         return(
-            <VStack bg="#26262E"  style={{backgroundImage: 'url(../images/noStoryFoundMarble.svg)', backgroundRepeat:'no-repeat', backgroundPosition:'center 0px'}}>
+            <VStack bg="#080808"  style={{backgroundImage: 'url(../images/noStoryFoundMarble.svg)', backgroundRepeat:'no-repeat', backgroundPosition:'center 0px'}}>
                     <VStack h={screenSize.height} justifyContent='space-between'>
                 <HStack justifyContent='space-between' w='100%' pt='32px' px={3}>
                     <Link to={"/"}>
@@ -108,16 +108,14 @@ export default function StoryPage(){
                        </Image>
                     </Link>
                     <Text color='white' fontSize='26px' fontFamily={'Merriweather'} fontWeight={700}> Growing Pains #{id}</Text>
-                    <Box>
-                        <Image src='../images/magniGlassIcON.svg'/>
-                    </Box>
+                    <SearchButton></SearchButton>
                 </HStack>
 
                
-               <VStack alignItems={'flex-start'} pb={5} bg='linear-gradient(180deg, rgba(38, 38, 46, 0) 0%, rgba(38, 38, 46, 0.3) 23.96%);'>
+               <VStack px='16px' alignItems={'flex-start'} pb={5} bg='linear-gradient(180deg, rgba(38, 38, 46, 0) 0%, rgba(38, 38, 46, 0.3) 23.96%);'>
 
-                    <Text mx='16px' color='#A9A9B1' fontFamily={'Roboto'} fontWeight={400} fontSize='16px'> Whoops, we ran into a problem </Text>
-                    <Text mx='16px' color='white' fontFamily={'Roboto'} fontWeight={400} fontSize='16px' pb='16px'> This story doesn’t exist yet, or was deleted. You can go to the story gallery to see all of the stories, or check out some of them below.</Text>
+                    <Text  color='#A9A9B1' fontFamily={'Roboto'} fontWeight={400} fontSize='16px'> Whoops, we ran into a problem </Text>
+                    <Text  color='white' fontFamily={'Roboto'} fontWeight={400} fontSize='16px' pb='16px'> This story doesn’t exist yet, or was deleted. You can go to the story gallery to see all of the stories, or check out some of them below.</Text>
 
                     <HStack justifyContent={'space-around'} w="100%" pb='32px'>
                         <Box h='auto' w='100px'>

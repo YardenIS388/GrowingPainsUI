@@ -28,9 +28,9 @@ export default function SearchButton() {
     const stories = useContext(StoryContext)
 
    
-    const getStoryById = async() => {
+    const getStoryById = () => {
    
-            const story = stories.find(current => current.storyId === id)
+            const story = stories.find(current => current.storyId == id)
             setStoryData(story)
             if(story){
                 console.log({...story})
@@ -40,6 +40,7 @@ export default function SearchButton() {
             }
            
     }
+    console.log(storyData)
 
     const handleClose = ()=> {
         setStoryData(null)
