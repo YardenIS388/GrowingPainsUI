@@ -34,7 +34,7 @@ export default function StoryCircle({imageSrc, audio, story}) {
             isOpen = { isOpen }
             onClose = {onClose}
             placement = 'bottom' > 
-            <DrawerOverlay/> 
+            <DrawerOverlay backdropFilter={'blur(3px)'}/> 
             < DrawerContent 
                     bg = '#26262E' 
                     borderRadius = { '32px'}
@@ -74,11 +74,9 @@ export default function StoryCircle({imageSrc, audio, story}) {
             </VStack> </DrawerBody>
 
           <DrawerFooter>
-                <HStack w='100%'>
-                            <Box bg='#303038' borderRadius='16px'>
-                                  <GoToWhatsapp id={story? story.storyId : null}></GoToWhatsapp>
-                            </Box>
-                            <ShareStory screenHeight={710}></ShareStory > 
+                <HStack w='100%'>                        
+                    <GoToWhatsapp id={story? story.storyId : null}></GoToWhatsapp>            
+                    <ShareStory screenHeight={window.innerHeight}></ShareStory > 
                 </HStack> 
             </DrawerFooter>
         </DrawerContent > 
