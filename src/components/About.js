@@ -1,6 +1,6 @@
 import { Box , HStack, Text, Image , VStack, Center} from '@chakra-ui/react'
 import StoryCircle from './StoryCircle'
-import {Link} from 'react-router-dom'
+
 
 export default function About(storyList){
 
@@ -40,11 +40,11 @@ export default function About(storyList){
                 <HStack justifyContent={'space-between'} w="100%" h='48px' mb={3}>
 
                     <Center bg={'#303038'} color='white'  h='100%'  borderRadius={'16px'} px={3}>
-                        <Link to={"FAQ"}>
+                      <a href='https://joshuamv.github.io/Growing-Pains-FAQ/'>
                             <Text m={2} whiteSpace='nowrap' fontSize={'16px'} fontFamily={'Roboto'} color='#A9A9B1'> 
                              Go to FAQ
                             </Text>
-                        </Link>
+                      </a>
                     </Center>
                     <a href='https://www.linkedin.com/in/joshmv/' style={{width:'100%', height:'100%'}}>
                     <Center bg={'#303038'} color='white'  h='100%' borderRadius={'16px'} px={3}>

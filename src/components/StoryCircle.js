@@ -39,8 +39,9 @@ export default function StoryCircle({imageSrc, audio, story}) {
                     bg = '#26262E' 
                     borderRadius = { '32px'}
                     mx = {'auto'}
-                    mb = {4}
-                    w = "93%" > 
+                    mb = {'10px'}
+                    w = "93%"
+                    > 
         <DrawerHeader display='flex' justifyContent={'space-between'} py='24px'>
             <Text color='white' fontFamily={'Merriweather'} fontWeight={700}>
                 Growing Pains # {story? story.storyId : null}

@@ -51,11 +51,11 @@ export default function SearchButton() {
         <Box>
             <Image src='../images/magniGlassIcON.svg' onClick={onOpen} size='24px' ></Image>
             <Modal isOpen={isOpen} onClose={handleClose}>
-                <ModalOverlay/>
-                <ModalContent bg='#26262E' borderRadius='32px' mt={40} mx={'16px'} >
-                    <ModalHeader>
+                <ModalOverlay backdropFilter={'blur(3px)'}/>
+                <ModalContent bg='#26262E' borderRadius='32px' mb='12px' mx={'16px'} >
+                    <ModalHeader display='flex' justifyContent={'space-between'} py='24px'>
                         <HStack w='100%' justifyContent={'space-between'}>
-                                <Text color='white' fontFamily={'Merriweather'} fontSize='24px' > Search a story</Text>
+                                <Text color='white' fontFamily={'Merriweather'} fontSize='18px' > Search a story</Text>
                                 <Image  size='24px' src='../images/closeShare.svg' onClick={handleClose}></Image>
                         </HStack>
                     </ModalHeader>

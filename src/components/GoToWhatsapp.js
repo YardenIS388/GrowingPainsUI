@@ -13,7 +13,7 @@ export default function GoToWhatsapp  ({id}) {
 
     return (
         <a href={hrefToStory} data-action="share/whatsapp/share"  target="_blank">
-                <Center boxSize='60px' bg='#303038' borderRadius='16px'>
+                <Center boxSize='60px' bg='rgba(255, 255, 255 , 0.05)' borderRadius='16px'>
                 <Image src='../images/shareIcon.svg'></Image>
         </Center>
         </a>

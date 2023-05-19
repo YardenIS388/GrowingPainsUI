@@ -18,6 +18,7 @@ import {
 import {motion} from 'framer-motion'
 import {useState} from 'react'
 import axios from 'axios';
+import GoToWhatsapp from './GoToWhatsapp';
 
 
 export default function ShareStory({screenHeight, handleDrawerToggle}) {
@@ -30,7 +31,7 @@ export default function ShareStory({screenHeight, handleDrawerToggle}) {
     const [language, setLanguage] = useState([true, false, false, false])
     const [succsessStoryObj, setSuccsessStoryObj] = useState({})
     const [isLoasing , setIsLoading] = useState(false)
-
+    const [mailToLink, setMailToLink] = useState('mailto:delete@growingpains.me?subject=Take down story ')
     const rootURL = process.env.REACT_APP_ROOTURL
 
     const createNewStory = async(newStory) => {
@@ -95,6 +96,8 @@ export default function ShareStory({screenHeight, handleDrawerToggle}) {
             setSuccsessStoryObj(data)
             setFormSucess('done')
             setIsLoading(false)
+            setMailToLink(`mailto:delete@growingpains.me?subject=Take down story #${data._id} `)
+
         } catch (error) {
             console.log('Error creating new story:', error);
             setIsLoading(false)
@@ -121,24 +124,23 @@ export default function ShareStory({screenHeight, handleDrawerToggle}) {
             <Center bg={'white'} borderRadius='16px' h='100%' w="100%" onClick={onOpen} boxShadow={'0px 4px 60px rgba(255, 255, 255 , 0.2)'}>
                <Text fontFamily={'Merriweather'} fontSize='18px' fontWeight={700}> Tell your story </Text> 
             </Center>
-            <Drawer placement='bottom' onClose={handleDrawerClose} isOpen={isOpen}  >
-                <DrawerOverlay/> {formSuccess === 'done'
-                    ? <DrawerContent borderRadius='32px' bg='#26262E'  w='93%' mx='auto'>
+            <Drawer placement='bottom' onClose={handleDrawerClose} isOpen={isOpen} h={screenHeight * 0.8} >
+                <DrawerOverlay backdropFilter={'blur(2px)'} /> {formSuccess === 'done'
+                    ? <DrawerContent borderRadius='32px' bg='#26262E'  w='93%' mx='auto' h='80%' mb='10px'>
                             <DrawerHeader
-                                borderBottomWidth='1px'
                                 display='flex'
                                 justifyContent='space-between'
                                 borderWidth='0px'
-                                mx='16px'>
-                                <Text color='white' fontFamily={'Merriweather'} fontWeight={700} fonrSize={'18px'}>
+                                py='24px'>
+                                <Text color='white' fontFamily={'Merriweather'} fontWeight={700} fontSize={'18px'}>
                                     Growing Pains # {succsessStoryObj
                                         ? succsessStoryObj.storyId
                                         : null}
                                 </Text>
                                 <Image src='../images/closeShare.svg' onClick={onClose}></Image>
                             </DrawerHeader>
-                            <DrawerBody display='flex' flexDirection='column' alignItems='center' gap={3} p='0px'>
-                                <HStack bg='#303038' flex={1} w='100%' py={5} gap={1} ps={5}>
+                            <DrawerBody display='flex' flexDirection='column' justifyContent={'space-between'} alignItems='center' gap={3} p='0px'>
+                                <HStack bg='#303038'  w='100%' py={5} gap={1} ps={5}>
                                     <Image src='../images/littleWhiteHeart.svg'></Image>
                                     <Text color='#A9A9B1' fontFamily={'Roboto'} fontWeight={400} fontSize='16px'>
                                         Thank you for sharing your story!</Text>
@@ -162,18 +164,18 @@ export default function ShareStory({screenHeight, handleDrawerToggle}) {
                             </DrawerBody>
                             <DrawerFooter display='flex' flexDirection='column' alignItems='flex-start' px='24px'>
                                 <HStack w="100%">
-                                    <Center bg='#303038' borderRadius='16px' h='59px' w='60px' onClick={handleShare}>
-                                        <Image src='../images/shareIcon.svg'/>
-                                    </Center>
-                                    <Center bg='#303038' borderRadius='16px' h='59px' w="100%" onClick={handleTakeDown}>
+                                   <GoToWhatsapp ></GoToWhatsapp>
+                                    <Center bg='#303038' borderRadius='16px' h='59px' w="80%" onClick={handleTakeDown}>
+                                        <a href= {mailToLink}>
                                         <Text color='#A9A9B1' fontFamily={'Roboto'} fontWeight={400} fontSize={'16px'}> 
                                             I want to take this down
                                         </Text>
+                                        </a>
                                     </Center>
                                 </HStack>
                             </DrawerFooter>
                         </DrawerContent>
-                    : <DrawerContent borderRadius='32px' w='93%' mx='auto' mb='16px'>
+                    : <DrawerContent borderRadius='32px' w='93%' mx='auto' mb='10px'>
                         <DrawerHeader
                             display='flex'
                             pt='24px'
