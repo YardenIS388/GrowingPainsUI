@@ -12,15 +12,20 @@ export default function StoryList({ title}) {
     return(
                 <Box display='flex' flexWrap='wrap' gap={5} overflow='scroll' pt='24px'>
                     {
-                      storyList.length > 0 ?   storyList.map((story) => {
+                      storyList.length > 0 ?   storyList.map(( story, index) => {
+                            console.log(index)
                             if(story.ageGroup === title){
                                 return (
                                     <Circle  
                                         key={story._id}
                                         size='60px'
-                                        me='auto' >
+                                        me='auto' 
+                                        display={'flex'}
+                                        justifyContent={'center'}
+                                        alignItems={'center'}
+                                        >
                                          <StoryCircle                                              
-                                            imageSrc={'../images/marble1.svg'} 
+                                            imageSrc={`../images/marbles/marble-xs-${story.storyId}.svg`} 
                                             story={story}> 
                                         </StoryCircle>
                                     </Circle>
@@ -30,7 +35,7 @@ export default function StoryList({ title}) {
                         null
                     }
                     {    
-                         emptyArray.map((index , story) => {                   
+                         emptyArray.map(( story, index ,) => {                   
                                 return (
                                     <Circle 
                                         key={index} 

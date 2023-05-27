@@ -16,7 +16,7 @@ import {
     Spinner
 } from '@chakra-ui/react'
 import {motion} from 'framer-motion'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import axios from 'axios';
 import GoToWhatsapp from './GoToWhatsapp';
 
@@ -32,13 +32,17 @@ export default function ShareStory({screenHeight, handleDrawerToggle}) {
     const [succsessStoryObj, setSuccsessStoryObj] = useState({})
     const [isLoasing , setIsLoading] = useState(false)
     const [mailToLink, setMailToLink] = useState('mailto:delete@growingpains.me?subject=Take down story ')
-    const rootURL = process.env.REACT_APP_ROOTURL
 
+
+    const rootURL = process.env.REACT_APP_ROOTURL
+    console.log(rootURL)
     const createNewStory = async(newStory) => {
         console.log(rootURL)
         try {
             const response = await axios.post(rootURL, newStory);
-            return response.data;
+            const storyObject = await axios.get(`${rootURL}/object/${response.data._id}`)
+            return storyObject.data;
+
         } catch (error) {
 
             console.log('Error creating new story:', error);
@@ -118,6 +122,15 @@ export default function ShareStory({screenHeight, handleDrawerToggle}) {
         console.log("Take this down please")
     }
 
+ 
+
+useEffect(() => {
+     const audioElements = document.getElementsByClassName('audio');
+     console.log('audio files: ', audioElements)
+
+  }, []);
+
+
     return (
 
         <VStack h={screenHeight * 0.07} w='100%' gap="2px">
@@ -164,7 +177,7 @@ export default function ShareStory({screenHeight, handleDrawerToggle}) {
                             </DrawerBody>
                             <DrawerFooter display='flex' flexDirection='column' alignItems='flex-start' px='24px'>
                                 <HStack w="100%">
-                                   <GoToWhatsapp ></GoToWhatsapp>
+                                   <GoToWhatsapp id={succsessStoryObj.storyId} ></GoToWhatsapp>
                                     <Center bg='#303038' borderRadius='16px' h='59px' w="80%" onClick={handleTakeDown}>
                                         <a href= {mailToLink}>
                                         <Text color='#A9A9B1' fontFamily={'Roboto'} fontWeight={400} fontSize={'16px'}> 

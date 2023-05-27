@@ -5,10 +5,10 @@ export default function AudioPlayer({audioFile, storyData}) {
 
     const [trackProgress, setTrackProgress] = useState(0);
     const [isPlaying, setIsPlaying] = useState(false);
-    const audioSrc = "../audio/" + audioFile;
-  
+    const audioSrc = audioFile;
+    console.log(audioSrc)
     const audioRef = useRef(new Audio(audioSrc));
-  
+    
     const handlePlay = () => {
       console.log("handle play " + isPlaying);
       if (isPlaying) {
@@ -27,6 +27,7 @@ export default function AudioPlayer({audioFile, storyData}) {
       }
 
      
+     
   
     useEffect(() => {
 
@@ -34,9 +35,13 @@ export default function AudioPlayer({audioFile, storyData}) {
       const updateProgress = () => {
         setTrackProgress(audio.currentTime);
       };
+
+      const  handleBlur = () => {
+        console.log("handle blur");
+      }
  
       audio.addEventListener("timeupdate", updateProgress);
-  
+     
       return () => {
         audio.removeEventListener("timeupdate", updateProgress);
         audio.pause(); // Pause the audio
@@ -52,7 +57,7 @@ export default function AudioPlayer({audioFile, storyData}) {
     <HStack w="100%" bg='#FF7153' borderRadius='56px' p='8px' borderWidth='3px' borderColor='#E6664B' boxShadow={'0px 4px 50px rgba(255,113,83, 0.14)'}>
         <HStack justifyContent='space-between' w="100%">
             <HStack>
-                <Circle bg="#EB5D3F" boxSize='40px' onClick={() => handlePlay()}>
+                <Circle bg="#EB5D3F" boxSize='40px' onClick={() => handlePlay()} className={'audio'}>
                     {isPlaying ? 
                     <Image src='../images/pauseIcon.svg'></Image>
                     : 

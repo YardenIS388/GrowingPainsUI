@@ -20,16 +20,22 @@ import GoToWhatsapp from './GoToWhatsapp'
 
 export default function StoryCircle({imageSrc, audio, story}) {
     const {isOpen, onOpen, onClose} = useDisclosure()
-
+    
     return ( 
     <> 
-    <Avatar as={motion.div}   
-           layout
+    <Box  bg='linear-gradient(85.96deg, rgba(255, 255, 255, 0) -20.51%, rgba(255, 255, 255, 0.01) 26.82%, rgba(255, 255, 255, 0) 65.65%), rgba(196, 196, 196, 0.02);' borderRadius={100} w='100%' h='100%' display={'flex'} justifyContent={'center'} alignItems={'center'}>
+    <img    
             src={imageSrc} 
-            onClick={onOpen} 
-            w='100%' 
-            h="100%">
-    </Avatar> 
+            onError={(e) => {
+                e.target.onerror = null
+                e.target.src = '../images/marbles/marble-xs-34.svg'
+              }}
+            alt={`Story  #${story &&  story.storyId }`}
+            onClick={onOpen}
+            
+           >
+    </img> 
+    </Box>
     < Drawer autoFocus={false}
             isOpen = { isOpen }
             onClose = {onClose}
@@ -52,7 +58,10 @@ export default function StoryCircle({imageSrc, audio, story}) {
         </DrawerHeader> 
         < DrawerBody > 
              <VStack justifyContent={'space-between'} gap={'0px'}>
-                <Image src='../images/marbleSound.svg' mx='auto'></Image>
+                <Image src={`../images/marbles/marble-L-${story && story.storyId}.svg`} mx='auto'  onError={(e) => {
+                e.target.onerror = null
+                e.target.src = '../images/marbles/marble-L-12.svg'
+              }}></Image>
                     <Text
                         color='#A9A9B1'
                         textAlign='left'
@@ -69,7 +78,7 @@ export default function StoryCircle({imageSrc, audio, story}) {
                         <Text color='white' fontFamily={'Roboto'} fontWeight={400} fontSize={'16px'}>
                             {story? story.content: null}
                         </Text>
-                        <AudioPlayer storyData={story} audioFile={'../audio/audio-1.mp3'} isOpen={isOpen}></AudioPlayer>
+                        { story && story.hasOwnProperty('audioFIleName') && <AudioPlayer storyData={story} audioFile={`../audio/${story.audioFIleName}`} isOpen={isOpen}></AudioPlayer>}
                  </VStack>
             </VStack> </DrawerBody>
 
