@@ -160,10 +160,19 @@ useEffect(() => {
                                 </HStack>
                                 <Circle
                                     size='220px'
-                                    borderStyle='dashed'
-                                    borderWidth={2}
-                                    borderColor="white"
-                                    bg='gray'></Circle>
+                                    >
+
+                                        <Image 
+                                            w='100%' 
+                                            h='100%' 
+                                            src={ `../images/marbles/marble-L-${succsessStoryObj && succsessStoryObj.storyId}.svg`}
+                                            onError={(e) => {
+                                                e.target.onerror = null
+                                                e.target.src = '../images/marbles/marble-L-12.svg'
+                                              }}>
+                                        
+                                        </Image>
+                                    </Circle>
                                 <VStack w="100%" alignItems='start' px='24px'>
                                     <Text color='#A9A9B1' fontFamily={'Roboto'} fontWeight={400} fontSize={'16px'}>Ages {succsessStoryObj
                                         ? succsessStoryObj.ageGroup
