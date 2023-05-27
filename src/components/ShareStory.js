@@ -186,8 +186,8 @@ useEffect(() => {
                             </DrawerBody>
                             <DrawerFooter display='flex' flexDirection='column' alignItems='flex-start' px='24px'>
                                 <HStack w="100%">
-                                   <GoToWhatsapp id={succsessStoryObj.storyId} ></GoToWhatsapp>
-                                    <Center bg='#303038' borderRadius='16px' h='59px' w="80%" onClick={handleTakeDown}>
+                                   <GoToWhatsapp id={succsessStoryObj.storyId} screenHeight={screenHeight}></GoToWhatsapp>
+                                    <Center bg='#303038' borderRadius='16px' h={screenHeight*0.07} w="80%" onClick={handleTakeDown}>
                                         <a href= {mailToLink}>
                                         <Text color='#A9A9B1' fontFamily={'Roboto'} fontWeight={400} fontSize={'16px'}> 
                                             I want to take this down
