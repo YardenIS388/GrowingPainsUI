@@ -319,7 +319,7 @@ useEffect(() => {
                                     h='40px'
                                     w='80px'
                                     my={1}
-                                    borderRadius='16px'
+                                    borderRadius='12px'
                                     boxShadow={ageGroup[0] ? '0px 3px 7px rgba(25 , 25 , 31 , 0.16)' : null}
                                     color={ageGroup[0]
                                     ? 'white'
@@ -335,7 +335,7 @@ useEffect(() => {
                                     w='80px'
                                     m={1}
                                     boxShadow={ageGroup[1] ? '0px 3px 7px rgba(25 , 25 , 31 , 0.16)' : null}
-                                    borderRadius='16px'
+                                    borderRadius='12px'
                                     color={ageGroup[1]
                                     ? 'white'
                                     : 'black'}
@@ -350,7 +350,7 @@ useEffect(() => {
                                     w='80px'
                                     m={1}
                                     boxShadow={ageGroup[2] ? '0px 3px 7px rgba(25 , 25 , 31 , 0.16)' : null}
-                                    borderRadius='16px'
+                                    borderRadius='12px'
                                     color={ageGroup[2]
                                     ? 'white'
                                     : 'black'}
@@ -365,7 +365,7 @@ useEffect(() => {
                                     w='80px'
                                     m={1}
                                     boxShadow={ageGroup[3] ? '0px 3px 7px rgba(25 , 25 , 31 , 0.16)' : null}
-                                    borderRadius='16px'
+                                    borderRadius='12px'
                                     color={ageGroup[3]
                                     ? 'white'
                                     : 'black'}

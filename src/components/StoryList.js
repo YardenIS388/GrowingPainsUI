@@ -1,4 +1,4 @@
-import {Circle, Box} from '@chakra-ui/react'
+import {Circle, Box, HStack} from '@chakra-ui/react'
 import StoryCircle from '../components/StoryCircle'
 import { useContext} from 'react'
 import { StoryContext } from '../contexts/StoriesContext'
@@ -11,6 +11,19 @@ export default function StoryList({ title}) {
 
     return(
                 <Box display='flex' flexWrap='wrap' gap={5} overflow='scroll' pt='24px'>
+                    {
+                        title === '13-19' && 
+                        <HStack w='100%'>
+                            <StoryCircle
+                                    imageSrc='../images/marbles/marble-M-olga.svg'
+                                    story={{content:'',
+                                            storyId:'olga',
+                                            ageGroup:'13-19',
+                                            audioFIleName:'../audio/audio-1.mp3'}
+                                            }>
+                            </StoryCircle>
+                        </HStack>
+                    }
                     {
                       storyList.length > 0 ?   storyList.map(( story, index) => {
                             console.log(index)

@@ -61,7 +61,7 @@ export default function StoryPage(){
     if(storyData){
         return(
             <VStack bg="#080808"  style={{backgroundImage: `url(../images/marbles/marble-XL-${storyData.storyId}.svg)`, backgroundRepeat:'no-repeat', backgroundPosition:'center 0px'}}>
-                    <VStack h={screenSize.height} justifyContent='space-between'>
+                    <VStack h={screenSize.height} justifyContent='space-between' w='100%'>
                 <HStack justifyContent='space-between' w='100%' pt='32px' px={3}>
                     <Link to={"/"}>
                        <Image src='../images/backIcon.svg'>
@@ -75,20 +75,20 @@ export default function StoryPage(){
                 </HStack>
 
                
-               <VStack pb={5} gap={5} bg='linear-gradient(180deg, rgba(38, 38, 46, 0) 0%, rgba(38, 38, 46, 0.3) 23.96%);'>
+               <VStack pb={5} gap={storyData.hasOwnProperty('audioFIleName') ? 5 : 0} bg='linear-gradient(180deg, rgba(38, 38, 46, 0) 0%, rgba(38, 38, 46, 0.3) 23.96%);' w='100%'>
 
-                <VStack color='white' w="100%" alignItems='flex-start' px='40px' >
+                <VStack color='white' w="100%" alignItems='flex-start' px='40px'>
                     <Text color='#A9A9B1' fontFamily={'Roboto'} fontWeight={400} fontSize='16px'> Ages {storyData.ageGroup}</Text>
                     <Text fontFamily={'Roboto'} fontWeight={400} fontSize='16px' pb='16px'> {storyData.content}</Text>
-                    <AudioPlayer storyData={storyData} audioFile={'audio-1.mp3'}>
+                   {storyData.hasOwnProperty('audioFIleName') && <AudioPlayer storyData={storyData} audioFile={'../audio/audio-1.mp3'}>
 
-                    </AudioPlayer>
+                    </AudioPlayer>}
                 </VStack>
 
 
                 <HStack w='100%' px='40px'>
 
-                    <GoToWhatsapp id={id}></GoToWhatsapp>                  
+                    <GoToWhatsapp id={id} screenHeight={screenSize.height}></GoToWhatsapp>                  
                     <ShareStory screenHeight={screenSize.height} handleDrawerToggle={openShareDrawer}/>
                 </HStack>
                 

@@ -64,7 +64,7 @@ export default function SearchButton() {
                        {
                         storyData ? 
                         <Box  w='150px' h='150px'>
-                            <Link to={`/stories/${storyData.storyId}`}>
+                            <Link reloadDocument to={`/stories/${storyData.storyId}`}>
                                 <Image src={`../images/marbles/marble-L-${storyData.storyId}.svg`} ></Image>
                             </Link>
                         </Box>
