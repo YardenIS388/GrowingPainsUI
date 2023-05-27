@@ -34,7 +34,7 @@ export default function SearchButton() {
             setStoryData(story)
             if(story){
                 console.log({...story})
-                setSearchResult(`Found story #${story.storyId}`)
+                setSearchResult(`Found story #${story.storyId}, tap on it to open`)
             }else{
                 setSearchResult('Sorry, there does not seem to be a story with that number yet')
             }
@@ -44,7 +44,7 @@ export default function SearchButton() {
 
     const handleClose = ()=> {
         setStoryData(null)
-        setId('#')
+        setId('')
         onClose()
     }
 
@@ -65,7 +65,7 @@ export default function SearchButton() {
                         storyData ? 
                         <Box  w='150px' h='150px'>
                             <Link to={`/stories/${storyData.storyId}`}>
-                                <Image src='../images/marble.svg'></Image>
+                                <Image src={`../images/marbles/marble-L-${storyData.storyId}.svg`} ></Image>
                             </Link>
                         </Box>
                         

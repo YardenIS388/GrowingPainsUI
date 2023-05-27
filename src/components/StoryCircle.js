@@ -23,7 +23,7 @@ export default function StoryCircle({imageSrc, audio, story}) {
     
     return ( 
     <> 
-    <Box  bg='linear-gradient(85.96deg, rgba(255, 255, 255, 0) -20.51%, rgba(255, 255, 255, 0.01) 26.82%, rgba(255, 255, 255, 0) 65.65%), rgba(196, 196, 196, 0.02);' borderRadius={100} w='100%' h='100%' display={'flex'} justifyContent={'center'} alignItems={'center'}>
+    <Box  borderRadius={100} w='100%' h='100%' display={'flex'} justifyContent={'center'} alignItems={'center'}>
     <img    
             src={imageSrc} 
             onError={(e) => {
@@ -84,7 +84,7 @@ export default function StoryCircle({imageSrc, audio, story}) {
 
           <DrawerFooter>
                 <HStack w='100%'>                        
-                    <GoToWhatsapp id={story? story.storyId : null}></GoToWhatsapp>            
+                    <GoToWhatsapp id={story? story.storyId : null} screenHeight={window.innerHeight}></GoToWhatsapp>            
                     <ShareStory screenHeight={window.innerHeight}></ShareStory > 
                 </HStack> 
             </DrawerFooter>
