@@ -60,7 +60,7 @@ export default function StoryPage(){
 
     if(storyData){
         return(
-            <VStack bg="#080808"  style={{backgroundImage: 'url(../images/marble1.svg)', backgroundRepeat:'no-repeat', backgroundPosition:'center 0px'}}>
+            <VStack bg="#080808"  style={{backgroundImage: `url(../images/marbles/marble-XL-${storyData.storyId}.svg)`, backgroundRepeat:'no-repeat', backgroundPosition:'center 0px'}}>
                     <VStack h={screenSize.height} justifyContent='space-between'>
                 <HStack justifyContent='space-between' w='100%' pt='32px' px={3}>
                     <Link to={"/"}>

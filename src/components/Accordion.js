@@ -21,6 +21,7 @@ const Accordion = ({i, expanded, setExpanded, screenHeight, title}) => {
         animate={{ backgroundColor: isOpen ? "#26262E": "#19191F" }}
         borderRadius='16px' 
         w='100%'  
+        overflow='hidden'
        
         >
             <HStack boxShadow={isOpen && '0px 4px 60px rgba(0, 0, 0, 0.2)'} w="100%" justifyContent='space-between' px={5} h={isOpen ? screenHeight * 0.06 :screenHeight * 0.05} onClick={() => setExpanded(isOpen ? false: i)}>
