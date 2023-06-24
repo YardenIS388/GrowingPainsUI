@@ -31,7 +31,7 @@ export default function About(){
                 </Box>
                 
                 <Text color='#A9A9B1' fontSize='16px' fontWeight={400} fontFamily={'Roboto'} >
-                    Audio available for stories with this icon
+                        Tap a sphere to open a story
                 </Text>
             </HStack>
             <VStack alignItems='flex-start' px='28px' pb={5}>

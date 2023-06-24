@@ -27,7 +27,7 @@ export default function ShareStory({screenHeight, handleDrawerToggle}) {
     const {isOpen, onOpen, onClose} = useDisclosure()
     const [formSuccess , setFormSucess] = useState('initial')
     //const [formSuccess, setFormSucess] = useState('done')
-    const [storyField, setStoryField] = useState("A moment when I understood out that my parents aren’t perfect was when")
+    const [storyField, setStoryField] = useState("")
     const [ageGroup, setAgeGroup] = useState([false, false, false, false])
     const [language, setLanguage] = useState([true, false, false, false])
     const [succsessStoryObj, setSuccsessStoryObj] = useState({})
@@ -276,8 +276,7 @@ export default function ShareStory({screenHeight, handleDrawerToggle}) {
                                     onClick={() => setLanguage([false, false, false, true])}>Other</Center>
                             </HStack>
                             <Text fontFamily={'Roboto'} fontSize={'16px'} fontWeight={400} color='#303038'>
-                                Imagine you’re writing to a close friend about a time when you realized your
-                                parents aren’t perfect, that they’re just regular people like everyone else.
+                                    Imagine you’re telling a friend about the moment you realized your parents aren’t perfect.
                             </Text>
                             <Textarea
                                 bg="#F6F5F8"

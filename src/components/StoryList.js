@@ -6,10 +6,7 @@ import {StoryContext} from '../contexts/StoriesContext'
 export default function StoryList({title, screenHeight}) {
 
     const storyList = useContext(StoryContext)
-    const emptyArraySize = storyList
-        ? (storyList.length - 1) + (6 - (storyList.length - 1 % 3))
-        : 11
-    const emptyArray = Array(emptyArraySize).fill("")
+    const emptyArray = Array(9).fill("")
     const storiesWithAudio = storyList
         ? storyList.filter(story => {
             if (story.audioFIleName) {
@@ -21,22 +18,13 @@ export default function StoryList({title, screenHeight}) {
     console.log({storiesWithAudio})
 
     return (
-        <Box
-            display='flex'
-            flexWrap='wrap'
-            gap={5}
-            overflow='scroll'
-            pt='24px'
-            justifyContent={'space-around'}>
-            {< HStack w = '100%' justifyContent = {
-                'space-around'
-            }
-            alignItems = {
-                'center'
-            }
-            h = {
-                '20vh'
-            } > {
+        <Box overflow='scroll'
+             pt='24px'>
+            {< HStack w = '100%' 
+            justifyContent = { 'space-around'}
+            alignItems = {'center'}
+            h = {'20vh'} > 
+            {
                 storiesWithAudio.slice(0,2).map((story, index) => {
                     if (story) {
                         return (
@@ -57,9 +45,11 @@ export default function StoryList({title, screenHeight}) {
                 })
             } 
             </HStack>}
+
+            <Box display="flex" flexWrap={"wrap"}  gap={6}  justifyContent={'space-evenly'} alignItems="center">
             {storyList.length > 0
                 ? storyList.map((story, index) => {
-                    if (story.ageGroup === title) {
+                    if (story.ageGroup === title && !story.hasOwnProperty("audioFIleName")) {
                         return (
                             <Circle
                                 key={story._id}
@@ -83,7 +73,10 @@ export default function StoryList({title, screenHeight}) {
                     </Circle>
                 )
             })
+           
 }
+
+            </Box>
         </Box>
     )
 }
