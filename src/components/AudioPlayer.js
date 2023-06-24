@@ -5,11 +5,10 @@ export default function AudioPlayer({audioFile, storyData, cutAudioSignal}) {
     const [trackProgress, setTrackProgress] = useState(0);
     const [isPlaying, setIsPlaying] = useState(false);
     const audioSrc = audioFile;
-    console.log(audioSrc)
     const audioRef = useRef(new Audio(audioSrc));
     
     const handlePlay = () => {
-      console.log("handle play " + isPlaying);
+     
       if (isPlaying) {
         setIsPlaying(false);
        
@@ -36,10 +35,7 @@ export default function AudioPlayer({audioFile, storyData, cutAudioSignal}) {
         setTrackProgress(audio.currentTime);
       };
       
-      const  handleBlur = () => {
-        console.log("handle blur");
-      }
- 
+  
       audio.addEventListener("timeupdate", updateProgress);
      
       return () => {

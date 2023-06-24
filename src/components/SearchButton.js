@@ -33,14 +33,14 @@ export default function SearchButton() {
             const story = stories.find(current => current.storyId == id)
             setStoryData(story)
             if(story){
-                console.log({...story})
+              
                 setSearchResult(`Found story #${story.storyId}, tap on it to open`)
             }else{
                 setSearchResult('Sorry, there does not seem to be a story with that number yet')
             }
            
     }
-    console.log(storyData)
+  
 
     const handleClose = ()=> {
         setStoryData(null)

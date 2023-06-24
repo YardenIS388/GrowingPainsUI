@@ -36,9 +36,9 @@ export default function ShareStory({screenHeight, handleDrawerToggle}) {
 
 
     const rootURL = process.env.REACT_APP_ROOTURL
-    console.log(rootURL)
+  
     const createNewStory = async(newStory) => {
-        console.log(rootURL)
+  
         try {
             const response = await axios.post(rootURL, newStory);
             const storyObject = await axios.get(`${rootURL}/object/${response.data._id}`)

@@ -40,7 +40,7 @@ export default function StoryPage(){
             try {
     
                 const fetchData = await axios.get(getStoryByIdURI)
-                console.log(fetchData.data)
+             
                 setStoryData(fetchData.data)
             } catch (error) {
                 console.log(error)

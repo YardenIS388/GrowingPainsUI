@@ -1,14 +1,6 @@
 import {Center, Image} from '@chakra-ui/react'
 export default function GoToWhatsapp  ({id, screenHeight}) {
 
-    const copy = async () => {
-
-        console.log('copy')
-        // const text = `https://growingpains.me/story/${id}`
-        // await navigator.clipboard.writeText(text);
-        // alert('Text copied');
-      }
-
       const hrefToStory = `whatsapp://send?text= I think you would like this story- https://www.growingpains.me/stories/${id}`
 
     return (

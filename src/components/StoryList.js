@@ -14,9 +14,6 @@ export default function StoryList({title, screenHeight}) {
             }
         })
         : []
-
-    console.log({storiesWithAudio})
-
     return (
         <Box overflow='scroll'
              pt='24px'>

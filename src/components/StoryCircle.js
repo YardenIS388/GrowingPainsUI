@@ -35,8 +35,6 @@ export default function StoryCircle({imageSrc, audio, story}) {
 
         if(isOpen){
             setAudioPlayerSignal(true)
-        }else {
-            console.log("closed")
         }
 
     },[audioPlayerSignal])
@@ -47,7 +45,7 @@ export default function StoryCircle({imageSrc, audio, story}) {
     <img    
             src={imageSrc} 
             onError={(e) => {
-                console.log(e)
+             
                 e.target.onerror = null
                 e.target.src = '../images/marbles/marble-xs-34.svg'
               }}
