@@ -1,7 +1,6 @@
 import {HStack, Circle, Text, Image, Box} from '@chakra-ui/react'
 import {useState, useEffect, useRef} from 'react'
-
-export default function AudioPlayer({audioFile, storyData}) {
+export default function AudioPlayer({audioFile, storyData, cutAudioSignal}) {
 
     const [trackProgress, setTrackProgress] = useState(0);
     const [isPlaying, setIsPlaying] = useState(false);
@@ -13,6 +12,7 @@ export default function AudioPlayer({audioFile, storyData}) {
       console.log("handle play " + isPlaying);
       if (isPlaying) {
         setIsPlaying(false);
+       
         audioRef.current.pause();
       } else {
         setIsPlaying(true);
@@ -35,7 +35,7 @@ export default function AudioPlayer({audioFile, storyData}) {
       const updateProgress = () => {
         setTrackProgress(audio.currentTime);
       };
-
+      
       const  handleBlur = () => {
         console.log("handle blur");
       }

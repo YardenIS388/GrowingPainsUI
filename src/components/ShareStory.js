@@ -19,6 +19,7 @@ import {motion} from 'framer-motion'
 import {useState, useEffect} from 'react'
 import axios from 'axios';
 import GoToWhatsapp from './GoToWhatsapp';
+import ConfettiAnimation from './ConfettiAnimation';
 
 
 export default function ShareStory({screenHeight, handleDrawerToggle}) {
@@ -49,6 +50,12 @@ export default function ShareStory({screenHeight, handleDrawerToggle}) {
             throw error
         }
     };
+
+    const handleOpen = () => {
+      
+        onOpen()
+           
+    }
 
     async function handleSubmit(e) {
         // Prevent the browser from reloading the page
@@ -114,27 +121,19 @@ export default function ShareStory({screenHeight, handleDrawerToggle}) {
         onClose()
     }
 
-    const handleShare = ()=> {
-        handleDrawerToggle(succsessStoryObj)
-        console.log("share")
-    }
     const handleTakeDown = ()=> {
         console.log("Take this down please")
     }
 
  
 
-useEffect(() => {
-     const audioElements = document.getElementsByClassName('audio');
-     console.log('audio files: ', audioElements)
 
-  }, []);
 
 
     return (
 
         <VStack h={screenHeight * 0.07} w='100%' gap="2px">
-            <Center bg={'white'} borderRadius='16px' h='100%' w="100%" onClick={onOpen} boxShadow={'0px 4px 60px rgba(255, 255, 255 , 0.2)'}>
+            <Center bg={'white'} borderRadius='16px' h='100%' w="100%" onClick={handleOpen} boxShadow={'0px 4px 60px rgba(255, 255, 255 , 0.2)'}>
                <Text fontFamily={'Merriweather'} fontSize='18px' fontWeight={700}> Tell your story </Text> 
             </Center>
             <Drawer autoFocus={false} placement='bottom' onClose={handleDrawerClose} isOpen={isOpen} h={screenHeight * 0.8} >
@@ -196,6 +195,7 @@ useEffect(() => {
                                     </Center>
                                 </HStack>
                             </DrawerFooter>
+                           
                         </DrawerContent>
                     : <DrawerContent borderRadius='32px' w='93%' mx='auto' mb='10px'>
                         <DrawerHeader

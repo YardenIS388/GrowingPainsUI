@@ -4,8 +4,7 @@ import {
     useDisclosure,
     Button,
     HStack,
-    Text,
-    
+    Text, 
 } from '@chakra-ui/react'
 import StoryList from './StoryList'
 import About from './About'
@@ -70,7 +69,7 @@ export default function AccordionItem({title, stories, filter, screenHeight}) {
                     overflowY="scroll"
                     bg="rgba(38, 38, 46, 1)">
                     {title !== 'About this project'
-                        ? < StoryList storyList = {
+                        ? < StoryList screenHeight={screenHeight} storyList = {
                             filteredStories
                         } > </StoryList>
                         : <About></About>

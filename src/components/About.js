@@ -1,24 +1,29 @@
 import { Box , HStack, Text, Image , VStack, Center} from '@chakra-ui/react'
 import StoryCircle from './StoryCircle'
+import { StoryContext } from "../contexts/StoriesContext";
+import {useContext, useState, useEffect} from "react";
 
+export default function About(){
 
-export default function About(storyList){
+    const storyList = useContext(StoryContext)
+    
 
-    const story1 = storyList[47]
-    const story2 = storyList[48]
-    const story3 = storyList[49]
+   
+  
+
     return(
         <VStack gap={2}>
-            <HStack justifyContent='center'>
-                <Box w='100px' h='100px'>
-                    <StoryCircle imageSrc={'../images/marble.svg'} story={story1}></StoryCircle>
-                </Box>
-                <Box w='100px' h='100px'>
-                    <StoryCircle imageSrc={'../images/marble.svg'} story={story1}></StoryCircle>
-                </Box>
-                <Box w='100px' h='100px'>
-                    <StoryCircle imageSrc={'../images/marble.svg'} story={story1}></StoryCircle>
-                </Box>
+            <HStack justifyContent='center' pt={2}>
+                {
+                   storyList.length > 0 && storyList.map((story => {
+                        if(story.hasOwnProperty("audioFIleName")){ 
+                         return(
+                            <Box key={(story.storyId)} h="90px" w="90px">
+                                <StoryCircle imageSrc={`../images/marbles/marble-s-${story.storyId}.svg`} story={story}> </StoryCircle>
+                            </Box>
+                        )}
+                    }))
+                }
             </HStack>
             <HStack bg="#303038"  h="56px" alignItems='center' justifyContent='center' w='100%'> 
                 <Box boxSize='24px'>

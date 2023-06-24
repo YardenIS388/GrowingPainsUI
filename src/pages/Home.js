@@ -6,6 +6,7 @@ import ShareStory from '../components/ShareStory'
 import SuccsessShareStoryDrawer from '../components/SuccsessShareStoryDrawer'
 import {Example} from '../components/Accordion'
 import { VStack, useDisclosure} from '@chakra-ui/react'
+import ConfettiAnimation from '../components/ConfettiAnimation'
 
 export default function Home() {
     const [screenSize,setScreenSize] = useState({width: window.innerWidth, height: window.innerHeight});
@@ -39,6 +40,7 @@ export default function Home() {
                         <Example screenHeight={screenSize.height}></Example>
                         <ShareStory screenHeight={screenSize.height} handleDrawerToggle={openShareDrawer}/>
                         <SuccsessShareStoryDrawer onClose={onClose} isOpen={isOpen} shareStoryData={shareStoryData}></SuccsessShareStoryDrawer>
+                       
             </VStack>
            
 

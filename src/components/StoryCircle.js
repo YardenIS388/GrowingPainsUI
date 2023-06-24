@@ -17,9 +17,29 @@ import {motion} from 'framer-motion'
 import ShareStory from '../components/ShareStory'
 import AudioPlayer from './AudioPlayer'
 import GoToWhatsapp from './GoToWhatsapp'
+import {useState, useEffect} from 'react'
 
 export default function StoryCircle({imageSrc, audio, story}) {
     const {isOpen, onOpen, onClose} = useDisclosure()
+    const [audioPlayerSignal , setAudioPlayerSignal] = useState(false)
+
+    const audioPlayerStop = ()=> {
+        console.log("set true")
+        setAudioPlayerSignal(true)
+    }
+    const audioPlayerStart = ()=> {
+        setAudioPlayerSignal(true)
+    }
+
+    useEffect(()=> {
+
+        if(isOpen){
+            setAudioPlayerSignal(true)
+        }else {
+            console.log("closed")
+        }
+
+    },[audioPlayerSignal])
     
     return ( 
     <> 
@@ -27,6 +47,7 @@ export default function StoryCircle({imageSrc, audio, story}) {
     <img    
             src={imageSrc} 
             onError={(e) => {
+                console.log(e)
                 e.target.onerror = null
                 e.target.src = '../images/marbles/marble-xs-34.svg'
               }}
@@ -78,14 +99,14 @@ export default function StoryCircle({imageSrc, audio, story}) {
                         <Text color='white' fontFamily={'Roboto'} fontWeight={400} fontSize={'16px'}>
                             {story? story.content: null}
                         </Text>
-                        { story && story.hasOwnProperty('audioFIleName') && <AudioPlayer storyData={story} audioFile={`../audio/${story.audioFIleName}`} isOpen={isOpen}></AudioPlayer>}
+                        { story && story.hasOwnProperty('audioFIleName') && <AudioPlayer cutAudioSignal={audioPlayerSignal} storyData={story} audioFile={`../audio/${story.audioFIleName}`} isOpen={isOpen}></AudioPlayer>}
                  </VStack>
             </VStack> </DrawerBody>
 
           <DrawerFooter>
                 <HStack w='100%'>                        
                     <GoToWhatsapp id={story? story.storyId : null} screenHeight={window.innerHeight}></GoToWhatsapp>            
-                    <ShareStory screenHeight={window.innerHeight}></ShareStory > 
+                    <ShareStory audioPlayerStop={audioPlayerStop} screenHeight={window.innerHeight}></ShareStory > 
                 </HStack> 
             </DrawerFooter>
         </DrawerContent > 

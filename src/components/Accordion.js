@@ -53,7 +53,7 @@ const Accordion = ({i, expanded, setExpanded, screenHeight, title}) => {
             }}>
             <Box height={screenHeight * 0.52} borderRadius=' 0px 0px 16px 16px' overflowY='scroll' px={title === 'About this project' ? '0px':'32px'}>
                { title === 'About this project' ? 
-                        <About ></About>
+                        <About></About>
                         :       
                         <StoryList title={title}> </StoryList>
                 }

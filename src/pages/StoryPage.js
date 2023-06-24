@@ -57,7 +57,7 @@ export default function StoryPage(){
       
         }
     }, [])
-
+ const picroot = "public/images/marbles/marble-XL-21.svg"
     if(storyData){
         return(
             <VStack bg="#080808"  style={{backgroundImage: `url(../images/marbles/marble-XL-${storyData.storyId}.svg)`, backgroundRepeat:'no-repeat', backgroundPosition:'center 0px'}}>
