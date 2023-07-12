@@ -24,7 +24,6 @@ export default function StoryCircle({imageSrc, audio, story}) {
     const [audioPlayerSignal , setAudioPlayerSignal] = useState(false)
 
     const audioPlayerStop = ()=> {
-        console.log("set true")
         setAudioPlayerSignal(true)
     }
     const audioPlayerStart = ()=> {

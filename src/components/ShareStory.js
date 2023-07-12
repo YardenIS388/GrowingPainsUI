@@ -45,8 +45,6 @@ export default function ShareStory({screenHeight, handleDrawerToggle}) {
             return storyObject.data;
 
         } catch (error) {
-
-            console.log('Error creating new story:', error);
             throw error
         }
     };
@@ -98,18 +96,14 @@ export default function ShareStory({screenHeight, handleDrawerToggle}) {
             art: 'http://example.com/image.jpg'
         };
 
-        //console.log({...newStory})
-
         try {
             const data = await createNewStory(newStory);
-            console.log('New story created:', data);
             setSuccsessStoryObj(data)
             setFormSucess('done')
             setIsLoading(false)
             setMailToLink(`mailto:delete@growingpains.me?subject=Take down story #${data._id} `)
 
         } catch (error) {
-            //console.log('Error creating new story:', error);
             setIsLoading(false)
         }
 

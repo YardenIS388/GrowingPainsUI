@@ -4,7 +4,6 @@ import {useContext} from 'react'
 import {StoryContext} from '../contexts/StoriesContext'
 
 export default function StoryList({title, screenHeight}) {
-
     const storyList = useContext(StoryContext)
     const emptyArray = Array(9).fill("")
     const storiesWithAudio = storyList
@@ -22,8 +21,8 @@ export default function StoryList({title, screenHeight}) {
             alignItems = {'center'}
              > 
             {
-                storiesWithAudio.slice(0,2).map((story, index) => {
-                    if (story && story.ageGroup == title) {
+                storiesWithAudio.map((story, index) => {
+                    if (story.ageGroup == title) {
                         return (
                             <Circle
                                 key={story._id}
