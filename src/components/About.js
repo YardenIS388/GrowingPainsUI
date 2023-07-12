@@ -36,11 +36,11 @@ export default function About(){
             </HStack>
             <VStack alignItems='flex-start' px='28px' pb={5}>
                 <Text color='white' fontSize='18px' fontWeight='700' lineHeight='27px' fontFamily={'Merriweather'}> Growing up</Text>
-                <Text fontSize='16px' fontWeight={500} color="#A9A9B1" fontFamily={'Roboto'}>
-                    Part of growing up is realizing our parents aren’t perfect beings, they’re changing and growing people like the children they raise.
+                <Text fontSize='16px' fontWeight={400} color="#8A8A92" fontFamily={'Roboto'}>
+                    Part of growing up is realizing that our parents aren’t perfect beings, they’re changing and growing people like the children they raise.
                 </Text>
                 <Text color='#8A8A92' fontFamily={'Roboto'} fontWeight={400}>
-                    Growing Pains reexamines the relationship between parents and children through the collection of moments when people realized that their parents aren’t perfect, seeing the imperfect child behind their heroes.
+                    Growing Pains reexamines the relationship between parents and children through the collection of moments when people realized that their parents are just human.
                 </Text>
                 <HStack justifyContent={'space-between'} w="100%" h='48px' mb={3}>
 

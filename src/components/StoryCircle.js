@@ -91,9 +91,9 @@ export default function StoryCircle({imageSrc, audio, story}) {
                         Ages {story ? story.ageGroup : null}
 
                     </Text>
-                    <VStack justifyContent={'space-between'} gap={'8px'}>
+                    <VStack gap={'8px'}>
 
-                        <Text color='white' fontFamily={'Roboto'} fontWeight={400} fontSize={'16px'}>
+                        <Text color='white' w={'100%'} fontFamily={'Roboto'} textAlign='left' fontWeight={400} fontSize={'16px'}>
                             {story? story.content: null}
                         </Text>
                         { story && story.hasOwnProperty('audioFIleName') && <AudioPlayer cutAudioSignal={audioPlayerSignal} storyData={story} audioFile={`../audio/${story.audioFIleName}`} isOpen={isOpen}></AudioPlayer>}
