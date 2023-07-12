@@ -12,8 +12,8 @@ export default function About(){
   
 
     return(
-        <VStack gap={2}>
-            <HStack justifyContent='center' pt={2} gap={2}>
+        <VStack pt={2} gap={2}>
+            <HStack justifyContent='center' pt={2} gap={3}>
                 {
                    storyList.length > 0 && storyList.slice(0,3).map((story => {
                         if(story.hasOwnProperty("audioFIleName")){ 
