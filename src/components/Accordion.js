@@ -6,6 +6,7 @@ import {Box, Text, HStack, Image, VStack} from '@chakra-ui/react'
 import StoryList from '../components/StoryList'
 import About from '../components/About'
 
+
 const Accordion = ({i, expanded, setExpanded, screenHeight, title}) => {
     
     const isOpen = i === expanded;

@@ -15,7 +15,7 @@ export default function About(){
         <VStack gap={2}>
             <HStack justifyContent='center' pt={2}>
                 {
-                   storyList.length > 0 && storyList.map((story => {
+                   storyList.length > 0 && storyList.slice(0,3).map((story => {
                         if(story.hasOwnProperty("audioFIleName")){ 
                          return(
                             <Box key={(story.storyId)} h="90px" w="90px">

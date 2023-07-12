@@ -1,0 +1,37 @@
+.arc-animation-container {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    top:0;
+    left:0;
+  }
+  
+  .animated-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: arcAnimation 3s ease-in;
+    opacity:0;
+  }
+  
+  @keyframes arcAnimation {
+    0% {
+        transform: translateY(0vh); 
+        opacity: 1;
+      }
+      10%{
+        transform: translateY(-10vh) translateX(10vh);
+        
+      }
+      20% {
+        transform: translateY(-5vh) translateX(15vh);
+      }
+      30%{
+        transform: translateY(0vh) translateX(25vh);
+      }
+      100% {
+        transform: translateY(100vh) translateX(100vw); 
+      }
+  }

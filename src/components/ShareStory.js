@@ -91,7 +91,6 @@ export default function ShareStory({screenHeight, handleDrawerToggle}) {
             selectedLanguage  = 'Other'
         }
 
-        console.log("click")
         const newStory = {
             content: storyField,
             ageGroup: selectedAgeGroup,
@@ -99,7 +98,7 @@ export default function ShareStory({screenHeight, handleDrawerToggle}) {
             art: 'http://example.com/image.jpg'
         };
 
-        console.log({...newStory})
+        //console.log({...newStory})
 
         try {
             const data = await createNewStory(newStory);
@@ -110,7 +109,7 @@ export default function ShareStory({screenHeight, handleDrawerToggle}) {
             setMailToLink(`mailto:delete@growingpains.me?subject=Take down story #${data._id} `)
 
         } catch (error) {
-            console.log('Error creating new story:', error);
+            //console.log('Error creating new story:', error);
             setIsLoading(false)
         }
 
@@ -137,7 +136,8 @@ export default function ShareStory({screenHeight, handleDrawerToggle}) {
                <Text fontFamily={'Merriweather'} fontSize='18px' fontWeight={700}> Tell your story </Text> 
             </Center>
             <Drawer autoFocus={false} placement='bottom' onClose={handleDrawerClose} isOpen={isOpen} h={screenHeight * 0.8} >
-                <DrawerOverlay backdropFilter={'blur(2px)'} /> {formSuccess === 'done'
+                <DrawerOverlay backdropFilter={'blur(2px)'} /> 
+                {formSuccess === 'done'
                     ? <DrawerContent borderRadius='32px' bg='#26262E'  w='93%' mx='auto' h='80%' mb='10px'>
                             <DrawerHeader
                                 display='flex'
@@ -195,6 +195,7 @@ export default function ShareStory({screenHeight, handleDrawerToggle}) {
                                     </Center>
                                 </HStack>
                             </DrawerFooter>
+                            
                            
                         </DrawerContent>
                     : <DrawerContent borderRadius='32px' w='93%' mx='auto' mb='10px'>
@@ -300,7 +301,7 @@ export default function ShareStory({screenHeight, handleDrawerToggle}) {
                             </Textarea>
                             <Text textAlign='right' fontSize='14px' color='#A9A9B1' position='relative' zIndex={100} bottom={6} right={7} m='-14px'>{storyField.length}/250</Text>
                             <Text fontFamily={'Roboto'} fontSize={'16px'} fontWeight={400} color='#303038'>
-                                How old were you when this happend?
+                                How old were you when this happened?
                             </Text>
                             <HStack
                                 as={motion.div}

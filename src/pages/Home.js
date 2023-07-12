@@ -40,6 +40,7 @@ export default function Home() {
                         <Example screenHeight={screenSize.height}></Example>
                         <ShareStory screenHeight={screenSize.height} handleDrawerToggle={openShareDrawer}/>
                         <SuccsessShareStoryDrawer onClose={onClose} isOpen={isOpen} shareStoryData={shareStoryData}></SuccsessShareStoryDrawer>
+                        
             </VStack>
            
 

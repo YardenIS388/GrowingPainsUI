@@ -20,17 +20,18 @@ export default function StoryList({title, screenHeight}) {
             {< HStack w = '100%' 
             justifyContent = { 'space-around'}
             alignItems = {'center'}
-            h = {'20vh'} > 
+             > 
             {
                 storiesWithAudio.slice(0,2).map((story, index) => {
-                    if (story) {
+                    if (story && story.ageGroup == title) {
                         return (
                             <Circle
                                 key={story._id}
                                 size='120px'
                                 display={'flex'}
                                 justifyContent={'center'}
-                                alignItems={'center'}>
+                                alignItems={'center'}
+                                mb={4}>
 
                                 <StoryCircle
                                     key={index * 1024}
