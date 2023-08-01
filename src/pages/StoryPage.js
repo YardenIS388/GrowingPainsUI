@@ -20,6 +20,8 @@ export default function StoryPage(){
     const { isOpen, onOpen, onClose } = useDisclosure()
     const storyList = useContext(StoryContext)
 
+    const maxWidth = '700px'
+
     const {id} = useParams()
 
         const rootURL = process.env.REACT_APP_ROOTURL
@@ -63,7 +65,7 @@ export default function StoryPage(){
 
     if(storyData){
         return(
-            <VStack bg="#080808"  style={{backgroundImage: `url(../images/marbles/marble-XL-${storyData.storyId}.svg)`, backgroundRepeat:'no-repeat', backgroundPosition:'center 0px'}}>
+            <VStack maxWidth={maxWidth} mx="auto"  bg="#080808"  style={{backgroundImage: `url(../images/marbles/marble-XL-${storyData.storyId}.svg)`, backgroundRepeat:'no-repeat', backgroundPosition:'center 0px'}}>
                     <VStack h={screenSize.height} justifyContent='space-between' w='100%'>
                 <HStack justifyContent='space-between' w='100%' pt='32px' px={3}>
                     <Link to={"/"}>
@@ -102,7 +104,7 @@ export default function StoryPage(){
         )
     }else{
         return(
-            <VStack bg="#080808"  style={{backgroundImage: 'url(../images/noStoryFoundMarble.svg)', backgroundRepeat:'no-repeat', backgroundPosition:'center 0px'}}>
+            <VStack maxWidth={maxWidth} mx="auto"  bg="#080808"  style={{backgroundImage: 'url(../images/noStoryFoundMarble.svg)', backgroundRepeat:'no-repeat', backgroundPosition:'center 0px'}}>
                     <VStack h={screenSize.height} justifyContent='space-between'>
                 <HStack justifyContent='space-between' w='100%' pt='32px' px={3}>
                     <Link to={"/"}>

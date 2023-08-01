@@ -57,7 +57,8 @@ export default function StoryCircle({imageSrc, audio, story}) {
     < Drawer autoFocus={false}
             isOpen = { isOpen }
             onClose = {onClose}
-            placement = 'bottom' > 
+            placement = 'bottom' 
+            maxW={"500px"}> 
             <DrawerOverlay backdropFilter={'blur(3px)'}/> 
             < DrawerContent 
                     bg = '#26262E' 
@@ -65,6 +66,7 @@ export default function StoryCircle({imageSrc, audio, story}) {
                     mx = {'auto'}
                     mb = {'10px'}
                     w = "93%"
+                    maxW={"500px"}
                     > 
         <DrawerHeader display='flex' justifyContent={'space-between'} py='24px'>
             <Text color='white' fontFamily={'Merriweather'} fontWeight={700}>

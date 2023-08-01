@@ -19,6 +19,7 @@ export default function StoryList({title, screenHeight}) {
             {< HStack w = '100%' 
             justifyContent = { 'space-around'}
             alignItems = {'center'}
+            mb={4}
              > 
             {
                 storiesWithAudio.map((story, index) => {
@@ -30,7 +31,7 @@ export default function StoryList({title, screenHeight}) {
                                 display={'flex'}
                                 justifyContent={'center'}
                                 alignItems={'center'}
-                                mb={4}>
+                              >
 
                                 <StoryCircle
                                     key={index * 1024}

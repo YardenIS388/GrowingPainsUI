@@ -125,11 +125,11 @@ export default function ShareStory({screenHeight, handleDrawerToggle}) {
 
     return (
 
-        <VStack h={screenHeight * 0.07} w='100%' gap="2px">
+        <VStack  h={screenHeight * 0.07} w='100%' gap="2px">
             <Center bg={'white'} borderRadius='16px' h='100%' w="100%" onClick={handleOpen} boxShadow={'0px 4px 60px rgba(255, 255, 255 , 0.2)'}>
                <Text fontFamily={'Merriweather'} fontSize='18px' fontWeight={700}> Tell your story </Text> 
             </Center>
-            <Drawer autoFocus={false} placement='bottom' onClose={handleDrawerClose} isOpen={isOpen} h={screenHeight * 0.8} >
+            <Drawer maxW={"500px"}  autoFocus={false} placement='bottom' onClose={handleDrawerClose} isOpen={isOpen} h={screenHeight * 0.8} >
                 <DrawerOverlay backdropFilter={'blur(2px)'} /> 
                 {formSuccess === 'done'
                     ? <DrawerContent borderRadius='32px' bg='#26262E'  w='93%' mx='auto' h='80%' mb='10px'>
